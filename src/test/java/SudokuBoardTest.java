@@ -1,28 +1,25 @@
 import org.junit.jupiter.api.Test;
 import java.util.*;
-
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SudokuBoardTest {
-    @Test
-    public void initialStateFilledWithZeroes() {
-        SudokuBoard zeroBoard = new SudokuBoard();
-        zeroBoard.fillWithZeroes();
-        int[][] boardCopy = zeroBoard.getBoardCopy();
-
-        for(int i=0; i < 9; i++) {
-            for(int j=0; j < 9; j++) {
-                assertEquals(0, boardCopy[i][j]);
-            }
-        }
-    }
+//    @Test
+//    public void initialStateFilledWithZeroes() {
+//        SudokuBoard zeroBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+//        zeroBoard.fillWithZeroes();
+//        int[][] boardCopy = zeroBoard.getBoardCopy();
+//
+//        for(int i=0; i < 9; i++) {
+//            for(int j=0; j < 9; j++) {
+//                assertEquals(0, boardCopy[i][j]);
+//            }
+//        }
+//    }
 
     @Test
     public void BoardCheckRow() {
-        SudokuBoard checkBoard = new SudokuBoard();
-        checkBoard.fillBoard();
+        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        checkBoard.solveGame();
         int[][] boardCopy = checkBoard.getBoardCopy();
         Set<Integer>testSet = new HashSet<>();
         boolean uniqueRow = true;
@@ -41,8 +38,8 @@ public class SudokuBoardTest {
 
     @Test
     public void BoardCheckColumn() {
-        SudokuBoard checkBoard = new SudokuBoard();
-        checkBoard.fillBoard();
+        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        checkBoard.solveGame();
         int[][] boardCopy = checkBoard.getBoardCopy();
         Set<Integer>testSet = new HashSet<>();
         boolean uniqueColumn = true;
@@ -61,8 +58,8 @@ public class SudokuBoardTest {
 
     @Test
     void BoardCheckSquare() {
-        SudokuBoard checkBoard = new SudokuBoard();
-        checkBoard.fillBoard();
+        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        checkBoard.solveGame();
         int[][] boardCopy = checkBoard.getBoardCopy();
         Set<Integer>testSet = new HashSet<>();
         boolean uniqueSquare = true;
@@ -83,20 +80,19 @@ public class SudokuBoardTest {
 
     @Test
     public void consecutiveBoardsDifferenceCheck() {
-        SudokuBoard firstBoard = new SudokuBoard();
-        firstBoard.fillBoard();
-        SudokuBoard secondBoard = new SudokuBoard();
-        secondBoard.fillBoard();
+        SudokuBoard firstBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        firstBoard.solveGame();
+        SudokuBoard secondBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        secondBoard.solveGame();
         assertEquals(false, firstBoard.equals(secondBoard));
     }
 
     @Test
     public void consecutiveBoardsCopySameCheck() {
-        SudokuBoard firstBoard = new SudokuBoard();
+        SudokuBoard firstBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         SudokuBoard secondBoard = firstBoard;
-        firstBoard.fillBoard();
+        firstBoard.solveGame();
         assertEquals(true, firstBoard.equals(secondBoard));
     }
-
 
 }

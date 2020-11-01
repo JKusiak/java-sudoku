@@ -1,156 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SudokuBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sudoku_JK</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">SudokuBoard.java</span></div><h1>SudokuBoard.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-<span class="fc" id="L6">public class SudokuBoard {</span>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SudokuBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sudoku_JK</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">SudokuBoard.java</span></div><h1>SudokuBoard.java</h1><pre class="source lang-java linenums">public class SudokuBoard {
     public static final int dimension = 9;
     public static final int empty = 0;
+<span class="fc" id="L4">    private int[][] board = new int[dimension][dimension];</span>
+    private SudokuSolver sudokuSolver;
 
-<span class="fc" id="L10">    private int[][] board = new int[dimension][dimension];</span>
+    public void solveGame() {
+<span class="fc" id="L8">        sudokuSolver.solve(this);</span>
+<span class="fc" id="L9">    }</span>
+
+<span class="fc" id="L11">    SudokuBoard(SudokuSolver solver) {</span>
+<span class="fc" id="L12">        sudokuSolver = solver;</span>
+<span class="fc" id="L13">    }</span>
+
+    public int get(int x, int y) {
+<span class="fc" id="L16">        return board[x][y];</span>
+    }
+
+    public void set(int x, int y, int value) {
+<span class="fc" id="L20">        board[x][y] = value;</span>
+<span class="fc" id="L21">    }</span>
 
     // storing all values from the board in it's copy
     public int[][] getBoardCopy() {
-<span class="fc" id="L14">        int[][] boardCopy = new int[dimension][dimension];</span>
-<span class="fc bfc" id="L15" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
-<span class="fc bfc" id="L16" title="All 2 branches covered.">            for (int j = 0; j &lt; dimension; j++) {</span>
-<span class="fc" id="L17">                boardCopy[i][j] = board[i][j];</span>
+<span class="fc" id="L25">        int[][] boardCopy = new int[dimension][dimension];</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">            for (int j = 0; j &lt; dimension; j++) {</span>
+<span class="fc" id="L28">                boardCopy[i][j] = board[i][j];</span>
             }
         }
-<span class="fc" id="L20">        return boardCopy;</span>
+<span class="fc" id="L31">        return boardCopy;</span>
     }
 
-    // initializing sudoku board by filling it with 0's
-    public void fillWithZeroes() {
-<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">            for (int j = 0; j &lt; dimension; j++) {</span>
-<span class="fc" id="L27">                board[i][j] = empty;</span>
-            }
-        }
-<span class="fc" id="L30">    }</span>
 
-    // filling empty board with 9 random numbers taken from a shuffled list
-    public void fillInitialRandom() {
-<span class="fc" id="L34">        List&lt;Integer&gt; randomNumbers = new ArrayList&lt;Integer&gt;() {{</span>
-<span class="fc" id="L35">            add(1);</span>
-<span class="fc" id="L36">            add(2);</span>
-<span class="fc" id="L37">            add(3);</span>
-<span class="fc" id="L38">            add(4);</span>
-<span class="fc" id="L39">            add(5);</span>
-<span class="fc" id="L40">            add(6);</span>
-<span class="fc" id="L41">            add(7);</span>
-<span class="fc" id="L42">            add(8);</span>
-<span class="fc" id="L43">            add(9);</span>
-<span class="fc" id="L44">        }};</span>
-<span class="fc" id="L45">        Collections.shuffle(randomNumbers);</span>
 
-        // setting up random coordinates to which a number from a shuffled list is placed
-<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (int numberIndex = 0; numberIndex &lt; dimension; numberIndex++) {</span>
-<span class="fc" id="L49">            int randomX = ThreadLocalRandom.current().nextInt(1, 9);</span>
-<span class="fc" id="L50">            int randomY = ThreadLocalRandom.current().nextInt(1, 9);</span>
-
-            // setting consecutive numbers from a shuffled list to random coordinates
-<span class="fc" id="L53">            board[randomX][randomY] = randomNumbers.get(numberIndex);</span>
-            }
-<span class="fc" id="L55">        }</span>
-
-    // bool checking if each sudoku row is correct
-    private boolean isRowOk(int row, int number) {
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">            if (board[row][i] == number) {</span>
-<span class="fc" id="L61">                return true;</span>
-            }
-<span class="fc" id="L63">        }</span>
-        return false;
-    }
-
-    // bool checking if each sudoku column is correct
-<span class="fc bfc" id="L68" title="All 2 branches covered.">    private boolean isColOk(int col, int number) {</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
-<span class="fc" id="L70">            if (board[i][col] == number) {</span>
-                return true;
-<span class="fc" id="L72">            }</span>
-        }
-        return false;
-    }
-
-<span class="fc" id="L77">    // bool checking if each sudoku square is correct</span>
-<span class="fc" id="L78">    private boolean isSquareOk(int row, int col, int number) {</span>
-        int r = row - row % 3;
-<span class="fc bfc" id="L80" title="All 2 branches covered.">        int c = col - col % 3;</span>
-<span class="fc bfc" id="L81" title="All 2 branches covered."></span>
-<span class="fc bfc" id="L82" title="All 2 branches covered.">        for (int i = r; i &lt; r + 3; i++) {</span>
-<span class="fc" id="L83">            for (int j = c; j &lt; c + 3; j++) {</span>
-                if (board[i][j] == number) {
-<span class="fc" id="L85">                    return true;</span>
-                }
-            }
-        }
-        return false;
-<span class="fc bfc" id="L90" title="All 6 branches covered.">    }</span>
-
-    // combined bool checking if the overall setting of the board is correct
-    private boolean isOk(int row, int col, int number) {
-        return !isRowOk(row, number)  &amp;&amp;  !isColOk(col, number)  &amp;&amp;  !isSquareOk(row, col, number);
-<span class="fc bfc" id="L95" title="All 2 branches covered.">    }</span>
-<span class="fc bfc" id="L96" title="All 2 branches covered."></span>
-<span class="fc bfc" id="L97" title="All 2 branches covered.">    //solving the board using backtracking algorithm</span>
-    public boolean solve() {
-<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (int row = 0; row &lt; dimension; row++) {</span>
-<span class="fc bfc" id="L100" title="All 2 branches covered.">            for (int col = 0; col &lt; dimension; col++) {</span>
-<span class="fc" id="L101">                if (board[row][col] == empty) {</span>
-                    // trying each number and checking if possible
-<span class="fc bfc" id="L103" title="All 2 branches covered.">                    for (int number = 1; number &lt;= dimension; number++) {</span>
-<span class="fc" id="L104">                        if (isOk(row, col, number)) {</span>
-                            board[row][col] = number;
-<span class="fc" id="L106"></span>
-                            if (solve()) { // recursive backtracking
-                                return true;
-                            } else { // if not proper value, set cell to 0 and repeat
-<span class="fc" id="L110">                                board[row][col] = empty;</span>
-                            }
-                        }
-                    }
-<span class="fc" id="L114">                    return false; // sudoku unsolvable</span>
-                }
-            }
-        }
-        return true; // sudoku solved
-<span class="fc" id="L119">    }</span>
-<span class="fc" id="L120"></span>
-<span class="fc" id="L121">    // final function that creates empty board, initializes it with random numbers and solves</span>
-<span class="fc" id="L122">    public void fillBoard() {</span>
-        fillWithZeroes();
-        fillInitialRandom();
-        solve();
-<span class="pc bpc" id="L126" title="1 of 2 branches missed.">    }</span>
-<span class="nc" id="L127"></span>
     @Override
     public boolean equals(Object obj) {
-<span class="fc bfc" id="L130" title="All 2 branches covered.">        if (obj == null) {</span>
-<span class="fc" id="L131">            return false;</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L39">            return false;</span>
         }
 
-<span class="pc bpc" id="L134" title="1 of 2 branches missed.">        if (this == obj) {</span>
-<span class="nc" id="L135">            return true;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (this == obj) {</span>
+<span class="fc" id="L43">            return true;</span>
         }
 
-<span class="fc" id="L138">        if (getClass() != obj.getClass()) {</span>
-            return false;
-<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        }</span>
-<span class="pc bpc" id="L141" title="1 of 2 branches missed."></span>
-<span class="fc bfc" id="L142" title="All 2 branches covered.">        SudokuBoard objBoard = (SudokuBoard) obj;</span>
-<span class="fc" id="L143"></span>
-        for (int rowId = 0; rowId &lt; board.length; rowId++) {
-            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {
-                if (board[rowId][columnId] != objBoard.getBoardCopy()[rowId][columnId]) {
-<span class="nc" id="L147">                    return false;</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L47">            return false;</span>
+        }
+
+<span class="fc" id="L50">        SudokuBoard objBoard = (SudokuBoard) obj;</span>
+
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">                if (board[rowId][columnId] != objBoard.getBoardCopy()[rowId][columnId]) {</span>
+<span class="fc" id="L55">                    return false;</span>
                 }
             }
         }
-        return true;
+<span class="nc" id="L59">        return true;</span>
     }
 }
-
-
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

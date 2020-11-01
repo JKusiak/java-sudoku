@@ -1,3 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Sudoku_JK,default,SudokuBoard.new ArrayList() {...},0,51,0,0,0,11,0,1,0,1
-Sudoku_JK,default,SudokuBoard,8,310,4,50,3,58,4,34,0,11
+Sudoku_JK,default,SudokuBoard,8,110,4,12,3,23,4,10,0,6
+Sudoku_JK,default,BacktrackingSudokuSolver.new ArrayList() {...},0,51,0,0,0,11,0,1,0,1
+Sudoku_JK,default,BacktrackingSudokuSolver,0,218,0,38,0,45,0,28,0,9

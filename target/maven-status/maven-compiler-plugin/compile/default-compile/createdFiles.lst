@@ -1,2 +1,4 @@
-SudokuBoard$1.class
+BacktrackingSudokuSolver$1.class
+SudokuSolver.class
+BacktrackingSudokuSolver.class
 SudokuBoard.class

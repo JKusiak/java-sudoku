@@ -13,7 +13,7 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     }
 
     // initializing sudoku board by filling it with 0's
-    public void fillWithZeroes(SudokuBoard board) {
+    private void fillWithZeroes(SudokuBoard board) {
         for (int i = 0; i < SudokuBoard.dimension; i++) {
             for (int j = 0; j < SudokuBoard.dimension; j++) {
                 board.set(i, j, SudokuBoard.empty);
@@ -23,7 +23,7 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
 
     // filling empty board with 9 random numbers taken from a shuffled list
     private void fillInitialRandom(SudokuBoard board) {
-        List<Integer> randomNumbers = new ArrayList<Integer>() {{
+        List<Integer> randomNumbers = new ArrayList<>() {{
             add(1);
             add(2);
             add(3);
@@ -89,7 +89,7 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
     }
 
     //solving the board using backtracking algorithm
-    public boolean solveAlgorithm(SudokuBoard board) {
+    private boolean solveAlgorithm(SudokuBoard board) {
         for (int row = 0; row < SudokuBoard.dimension; row++) {
             for (int col = 0; col < SudokuBoard.dimension; col++) {
                 if (board.get(row, col) == SudokuBoard.empty) {

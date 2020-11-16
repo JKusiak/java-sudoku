@@ -17,65 +17,10 @@ public class SudokuBoardTest {
 //    }
 
     @Test
-    public void BoardCheckRow() {
-        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        checkBoard.solveGame();
-        int[][] boardCopy = checkBoard.getBoardCopy();
-        Set<Integer>testSet = new HashSet<>();
-        boolean uniqueRow = true;
-
-        for(int i=0; i<3; i++) {
-            for(int j=0; j < 9; j++){
-                if(testSet.add(boardCopy[i][j]) == false){
-                    uniqueRow = false;
-                }
-            }
-            assertTrue(uniqueRow);
-            uniqueRow = true;
-            testSet.clear();
-        }
-    }
-
-    @Test
-    public void BoardCheckColumn() {
-        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        checkBoard.solveGame();
-        int[][] boardCopy = checkBoard.getBoardCopy();
-        Set<Integer>testSet = new HashSet<>();
-        boolean uniqueColumn = true;
-
-        for(int i=0; i<3; i++) {
-            for(int j=0; j < 9; j++){
-                if(testSet.add(boardCopy[j][i]) == false){
-                    uniqueColumn = false;
-                }
-            }
-            assertTrue(uniqueColumn);
-            uniqueColumn = true;
-            testSet.clear();
-        }
-    }
-
-    @Test
-    void BoardCheckSquare() {
-        SudokuBoard checkBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        checkBoard.solveGame();
-        int[][] boardCopy = checkBoard.getBoardCopy();
-        Set<Integer>testSet = new HashSet<>();
-        boolean uniqueSquare = true;
-
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    if (testSet.add(boardCopy[3 * (i / 3) + j][3 * (i % 3) + k]) == false) {
-                        uniqueSquare = false;
-                    }
-                }
-            }
-            assertTrue(uniqueSquare);
-            uniqueSquare = true;
-            testSet.clear();
-        }
+    public void boardCheckAll() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.solveGame();
+        assertEquals(true, testBoard.checkBoard());
     }
 
     @Test
@@ -95,4 +40,11 @@ public class SudokuBoardTest {
         assertEquals(true, firstBoard.equals(secondBoard));
     }
 
+    @Test
+    public void boardSetValueGetValue() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.set(1, 1, 9);
+        assertEquals(9, testBoard.get(1, 1));
+        assertNotEquals(1, testBoard.get(1, 1));
+    }
 }

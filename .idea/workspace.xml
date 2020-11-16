@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="203b3b8e-7c2d-43ce-b437-88e9e0c695bc" name="Default Changelist" comment="" />
+    <list default="true" id="203b3b8e-7c2d-43ce-b437-88e9e0c695bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BacktrackingSudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BacktrackingSudokuSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SudokuSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SudokuSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SudokuBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SudokuBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-result.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BacktrackingSudokuSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BacktrackingSudokuSolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/checkstyle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/checkstyle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/checkstyle.rss" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/checkstyle.rss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependencies.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependencies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependency-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/default/BacktrackingSudokuSolver.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/default/BacktrackingSudokuSolver.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/default/SudokuBoard.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/default/SudokuBoard.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugin-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugins.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2020-11-01T21-28-52_124.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/SudokuBoardTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/SudokuBoardTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-SudokuBoardTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-SudokuBoardTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/SudokuBoardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/SudokuBoardTest.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +39,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1j4NqcdIVH0Depq5UmfPLDYXLit" />
@@ -24,9 +66,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RunManager">
     <configuration name="All in Sudoku_JK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -55,6 +99,17 @@
       <updated>1603059595979</updated>
       <workItem from="1603059599629" duration="851000" />
       <workItem from="1603060674310" duration="1819000" />
+      <workItem from="1603217895217" duration="663000" />
+      <workItem from="1603632854592" duration="1741000" />
+      <workItem from="1603635780390" duration="37000" />
+      <workItem from="1603635831204" duration="14657000" />
+      <workItem from="1603709340267" duration="3379000" />
+      <workItem from="1604239480094" duration="8402000" />
+      <workItem from="1604313710835" duration="2949000" />
+      <workItem from="1604355243816" duration="57000" />
+      <workItem from="1605127098452" duration="625000" />
+      <workItem from="1605367558967" duration="598000" />
+      <workItem from="1605473924385" duration="9661000" />
     </task>
     <servers />
   </component>
@@ -62,33 +117,69 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="791" y="130" key="#Project_Structure" timestamp="1603061484632">
+    <state x="791" y="130" key="#Project_Structure" timestamp="1603636958841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="791" y="130" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1603061484632" />
-    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603060013420">
+    <state x="791" y="130" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1603636958841" />
+    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605127351648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603060013420" />
-    <state width="1877" height="157" key="GridCell.Tab.0.bottom" timestamp="1603062495327">
+    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605127351648" />
+    <state x="419" y="458" key="#com.intellij.ide.util.MemberChooser" timestamp="1605475377438">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603062495327" />
-    <state width="1877" height="157" key="GridCell.Tab.0.center" timestamp="1603062495327">
+    <state x="419" y="458" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605475377438" />
+    <state x="546" y="454" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605483122313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603062495327" />
-    <state width="1877" height="157" key="GridCell.Tab.0.left" timestamp="1603062495327">
+    <state x="546" y="454" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605483122313" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603635808024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603062495327" />
-    <state width="1877" height="157" key="GridCell.Tab.0.right" timestamp="1603062495327">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603635808024" />
+    <state width="1383" height="157" key="GridCell.Tab.0.bottom" timestamp="1605486604613">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="157" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603062495327" />
+    <state width="1383" height="157" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605486604613" />
+    <state width="1383" height="157" key="GridCell.Tab.0.center" timestamp="1605486604613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1383" height="157" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605486604613" />
+    <state width="1383" height="157" key="GridCell.Tab.0.left" timestamp="1605486604613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1383" height="157" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605486604613" />
+    <state width="1383" height="157" key="GridCell.Tab.0.right" timestamp="1605486604613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1383" height="157" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605486604613" />
+    <state x="653" y="98" key="SettingsEditor" timestamp="1605127672058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="653" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605127672058" />
+    <state x="594" y="205" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1604315353512">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="205" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604315353512" />
+    <state x="1383" y="485" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605475470904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1383" y="485" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605475470904" />
+    <state x="454" y="394" key="extract.method.dialog" timestamp="1605476287442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="454" y="394" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605476287442" />
+    <state x="342" y="215" key="new project wizard" timestamp="1605127298474">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1605127298474" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1603061604444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603061604444" />
+    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup" timestamp="1605479929623">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605479929623" />
   </component>
 </project>

@@ -1,26 +1,15 @@
 import org.junit.jupiter.api.Test;
-import java.util.*;
+
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SudokuBoardTest {
-//    @Test
-//    public void initialStateFilledWithZeroes() {
-//        SudokuBoard zeroBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-//        zeroBoard.fillWithZeroes();
-//        int[][] boardCopy = zeroBoard.getBoardCopy();
-//
-//        for(int i=0; i < 9; i++) {
-//            for(int j=0; j < 9; j++) {
-//                assertEquals(0, boardCopy[i][j]);
-//            }
-//        }
-//    }
-
     @Test
     public void boardCheckAll() {
         SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         testBoard.solveGame();
-        assertEquals(true, testBoard.checkBoard());
+        assertTrue(testBoard.checkBoard());
     }
 
     @Test
@@ -29,7 +18,7 @@ public class SudokuBoardTest {
         firstBoard.solveGame();
         SudokuBoard secondBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         secondBoard.solveGame();
-        assertEquals(false, firstBoard.equals(secondBoard));
+        assertNotEquals(firstBoard, secondBoard);
     }
 
     @Test
@@ -37,7 +26,7 @@ public class SudokuBoardTest {
         SudokuBoard firstBoard = new SudokuBoard(new BacktrackingSudokuSolver());
         SudokuBoard secondBoard = firstBoard;
         firstBoard.solveGame();
-        assertEquals(true, firstBoard.equals(secondBoard));
+        assertEquals(firstBoard, secondBoard);
     }
 
     @Test
@@ -46,5 +35,112 @@ public class SudokuBoardTest {
         testBoard.set(1, 1, 9);
         assertEquals(9, testBoard.get(1, 1));
         assertNotEquals(1, testBoard.get(1, 1));
+    }
+
+    @Test
+    public void emptyConstructorSolverConstructructorDifferenceCheck() {
+        SudokuBoard defaultBoard = new SudokuBoard();
+        SudokuBoard filledBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        filledBoard.solveGame();
+
+        assertNotEquals(defaultBoard, filledBoard);
+    }
+
+    @Test
+    public void getRowNonEmptyOnFilledBoard() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.solveGame();
+        SudokuStructure testRowFilled = testBoard.getRow(1);
+        SudokuStructure testRowEmpty = new SudokuStructure(Arrays.asList(
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0)
+        ));
+        assertNotEquals(testRowFilled, testRowEmpty);
+    }
+
+    @Test
+    public void getColumnNonEmptyOnFilledBoard() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.solveGame();
+        SudokuStructure testColumnFilled = testBoard.getColumn(1);
+        SudokuStructure testColumnEmpty = new SudokuStructure(Arrays.asList(
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0)
+        ));
+        assertNotEquals(testColumnFilled, testColumnEmpty);
+    }
+
+    @Test
+    public void getBoxNonEmptyOnFilledBoard() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.solveGame();
+        SudokuStructure testBoxFilled = testBoard.getBox(1, 1);
+        SudokuStructure testBoxEmpty = new SudokuStructure(Arrays.asList(
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0),
+                new SudokuField(0)
+        ));
+        assertNotEquals(testBoxFilled, testBoxEmpty);
+    }
+
+    @Test
+    public void getRowDifferentBoardsDifferentResults() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+        SudokuBoard testBoard2 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard2.solveGame();
+        SudokuStructure testRow1 = testBoard1.getRow(1);
+        SudokuStructure testRow2 = testBoard2.getRow(1);
+        assertNotEquals(testRow1, testRow2);
+    }
+
+    @Test
+    public void getColumnDifferentBoardsDifferentResults() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+        SudokuBoard testBoard2 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard2.solveGame();
+        SudokuStructure testColumn1 = testBoard1.getColumn(1);
+        SudokuStructure testColumn2 = testBoard2.getColumn(1);
+        assertNotEquals(testColumn1, testColumn2);
+    }
+
+    @Test
+    public void getBoxDifferentBoardsDifferentResults() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+        SudokuBoard testBoard2 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard2.solveGame();
+        SudokuStructure testBox1 = testBoard1.getBox(1, 1);
+        SudokuStructure testBox2 = testBoard2.getBox(1, 1);
+        assertNotEquals(testBox1, testBox2);
+    }
+
+    @Test
+    public void getBoxApproximatesToLayoutBoxCorrectly() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuStructure testBox1 = testBoard.getBox(2, 2);
+        SudokuStructure testBox2 = testBoard.getBox(1, 1);
+        assertEquals(testBox1, testBox2);
     }
 }

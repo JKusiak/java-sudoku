@@ -1,5 +1,6 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SudokuBoard {
     public static final int dimension = 9;
@@ -7,21 +8,25 @@ public class SudokuBoard {
     private SudokuField[][] board = new SudokuField[dimension][dimension];
     private SudokuSolver sudokuSolver;
 
-    public void solveGame() {
-        sudokuSolver.solve(this);
-    }
 
+    // parametrized constructor passing type of solving algorithm to the board object
     SudokuBoard(SudokuSolver solver) {
         this();
         sudokuSolver = solver;
     }
 
+    // non - parametrized constructor passing ordered values from 1 to 9 to the board object
     SudokuBoard() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 board[i][j] = new SudokuField();
             }
         }
+    }
+
+    // method invoking solve procedure on the solver type passed by constructor
+    public void solveGame() {
+        sudokuSolver.solve(this);
     }
 
     public int get(int x, int y) {
@@ -32,76 +37,72 @@ public class SudokuBoard {
         board[x][y].setFieldValue(value);
     }
 
+    // iterates through 9 elements horizontally in the row passed in parameter,
+    // adding them to the list
     public SudokuStructure getRow(int x) {
-        SudokuField[] row = board[x].clone();
-        return new SudokuStructure(row);
-    }
+        // this one doesn't propagate changes to the array, just deletes it as garbage
+        // just after creating a new list, so we can't use it here
+        //List<SudokuField> rowList = new ArrayList(Arrays.asList(new SudokuField[dimension]));
+        List<SudokuField> rowList = Arrays.asList(new SudokuField[dimension]);
 
-    public SudokuStructure getColumn(int y) {
-        SudokuField[] column = new SudokuField[dimension];
-        for     (int i = 0; i < dimension; i++) {
-            column[i] = new SudokuField(this.get(i, y));
+        for (int i = 0; i < dimension; i++) {
+            rowList.set(i, new SudokuField(this.get(x, i)));
         }
-        return new SudokuStructure(column);
+
+        return new SudokuStructure(rowList);
     }
 
+    // iterates through 9 elements vertically in the column passed in parameter,
+    // adding them to the list
+    public SudokuStructure getColumn(int y) {
+        List<SudokuField> columnList = Arrays.asList(new SudokuField[dimension]);
+        for (int i = 0; i < dimension; i++) {
+            columnList.set(i, new SudokuField(this.get(i, y)));
+        }
+
+        return new SudokuStructure(columnList);
+    }
+
+    // approximates coordinates to the corresponding sudoku box beginning and
+    // iterates through its elements adding them to the list
     public SudokuStructure getBox(int x, int y) {
         int squareSize = 3;
         int xboundary = (int) Math.floor(x / squareSize) * squareSize;
         int yboundary = (int) Math.floor(y / squareSize) * squareSize;
-        SudokuField[] boxArray = new SudokuField[dimension];
+        List<SudokuField> boxList = Arrays.asList(new SudokuField[dimension]);
         int i = 0;
 
         for (int xbox = xboundary; xbox < xboundary + squareSize; xbox++) {
             for (int ybox = yboundary; ybox < yboundary + squareSize; ybox++) {
-                boxArray[i] = new SudokuField(this.get(xbox, ybox));
+                boxList.set(i, new SudokuField(this.get(xbox, ybox)));
                 i++;
             }
         }
-        return new SudokuStructure(boxArray);
+
+        return new SudokuStructure(boxList);
     }
 
     public boolean checkBoard() {
-        Set<Integer> testSet = new HashSet<>();
-        // check rows
-        for (int x = 0; x < dimension; x++) {
-            testSet.clear();
-            for (int y = 0; y < dimension; y++) {
-                if (testSet.add(this.get(x, y)) == false) {
-                    return false; // repetition in a row
-                }
+        // pass numbers from 1 to 9 to functions to get all rows and all columns
+        for (int i = 0; i < dimension; i++) {
+            if (!getRow(i).verify() || !getColumn(i).verify()) {
+                return false;
             }
         }
 
-        // check columns
-        for (int y = 0; y < dimension; y++) {
-            testSet.clear();
-            for (int x = 0; x < dimension; x++) {
-                if (testSet.add(this.get(x, y)) == false) {
-                    return false; // repetition in a column
+        // for less iterations gets box just once for each 3x3 sudoku box that is counted
+        // in the game rules, not all the boxes one can create on board (49 total boxes)
+        for (int y = 0; y < dimension; y += 3) {
+            for (int x = 0; x < dimension; x += 3) {
+                if (!getBox(x, y).verify()) {
+                    return false;
                 }
             }
         }
-
-        // check boxes
-        int squareSize = 3;
-        for (int x = 0; x < dimension; x += squareSize) {
-            for (int y = 0; y < dimension; y += squareSize) {
-                testSet.clear();
-                for (int xinternal = x; xinternal < squareSize; xinternal++) {
-                    for (int yinternal = y; yinternal < squareSize; yinternal++) {
-                        if (testSet.add(this.get(xinternal, yinternal)) == false) {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-
-    return true;
+        return true;
     }
 
-
+    // overridden method for testing purposes
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -125,6 +126,7 @@ public class SudokuBoard {
                 }
             }
         }
+
         return true;
     }
 }

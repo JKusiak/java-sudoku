@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -8,13 +11,13 @@ public class SudokuStructureTest {
     public void consecutiveStructuresDefault_Same() {
         SudokuStructure firstStructure = new SudokuStructure();
         SudokuStructure secondStructure = new SudokuStructure();
-        assertEquals(true, firstStructure.equals(secondStructure));
+        assertEquals(firstStructure, secondStructure);
     }
 
     @Test
     public void consecutiveStructuresInput_Different() {
         SudokuStructure firstStructure = new SudokuStructure();
-        SudokuStructure secondStructure = new SudokuStructure(new SudokuField[] {
+        SudokuStructure secondStructure = new SudokuStructure(Arrays.asList(
            new SudokuField(1),
            new SudokuField(2),
            new SudokuField(3),
@@ -24,8 +27,7 @@ public class SudokuStructureTest {
            new SudokuField(7),
            new SudokuField(8),
            new SudokuField(9)
-        });
-        assertEquals(false, firstStructure.equals(secondStructure));
+        ));
+        assertNotEquals(firstStructure, secondStructure);
     }
-
 }

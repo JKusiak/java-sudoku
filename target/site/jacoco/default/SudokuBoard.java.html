@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SudokuBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sudoku_JK</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">SudokuBoard.java</span></div><h1>SudokuBoard.java</h1><pre class="source lang-java linenums">import java.util.HashSet;
-import java.util.Set;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SudokuBoard.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sudoku_JK</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">SudokuBoard.java</span></div><h1>SudokuBoard.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SudokuBoard {
     public static final int dimension = 9;
     public static final int empty = 0;
-<span class="fc" id="L7">    private SudokuField[][] board = new SudokuField[dimension][dimension];</span>
+<span class="fc" id="L8">    private SudokuField[][] board = new SudokuField[dimension][dimension];</span>
     private SudokuSolver sudokuSolver;
 
-    public void solveGame() {
-<span class="fc" id="L11">        sudokuSolver.solve(this);</span>
-<span class="fc" id="L12">    }</span>
 
+    // parametrized constructor passing type of solving algorithm to the board object
     SudokuBoard(SudokuSolver solver) {
-<span class="fc" id="L15">        this();</span>
-<span class="fc" id="L16">        sudokuSolver = solver;</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L14">        this();</span>
+<span class="fc" id="L15">        sudokuSolver = solver;</span>
+<span class="fc" id="L16">    }</span>
 
+    // non - parametrized constructor passing ordered values from 1 to 9 to the board object
 <span class="fc" id="L19">    SudokuBoard() {</span>
 <span class="fc bfc" id="L20" title="All 2 branches covered.">        for (int i = 0; i &lt; board.length; i++) {</span>
 <span class="fc bfc" id="L21" title="All 2 branches covered.">            for (int j = 0; j &lt; board[i].length; j++) {</span>
@@ -24,108 +24,110 @@ public class SudokuBoard {
         }
 <span class="fc" id="L25">    }</span>
 
+    // method invoking solve procedure on the solver type passed by constructor
+    public void solveGame() {
+<span class="fc" id="L29">        sudokuSolver.solve(this);</span>
+<span class="fc" id="L30">    }</span>
+
     public int get(int x, int y) {
-<span class="fc" id="L28">        return board[x][y].getFieldValue();</span>
+<span class="fc" id="L33">        return board[x][y].getFieldValue();</span>
     }
 
     public void set(int x, int y, int value) {
-<span class="fc" id="L32">        board[x][y].setFieldValue(value);</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L37">        board[x][y].setFieldValue(value);</span>
+<span class="fc" id="L38">    }</span>
 
+    // iterates through 9 elements horizontally in the row passed in parameter,
+    // adding them to the list
     public SudokuStructure getRow(int x) {
-<span class="nc" id="L36">        SudokuField[] row = board[x].clone();</span>
-<span class="nc" id="L37">        return new SudokuStructure(row);</span>
-    }
+        // this one doesn't propagate changes to the array, just deletes it as garbage
+        // just after creating a new list, so we can't use it here
+        //List&lt;SudokuField&gt; rowList = new ArrayList(Arrays.asList(new SudokuField[dimension]));
+<span class="fc" id="L46">        List&lt;SudokuField&gt; rowList = Arrays.asList(new SudokuField[dimension]);</span>
 
-    public SudokuStructure getColumn(int y) {
-<span class="nc" id="L41">        SudokuField[] column = new SudokuField[dimension];</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        for     (int i = 0; i &lt; dimension; i++) {</span>
-<span class="nc" id="L43">            column[i] = new SudokuField(this.get(i, y));</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
+<span class="fc" id="L49">            rowList.set(i, new SudokuField(this.get(x, i)));</span>
         }
-<span class="nc" id="L45">        return new SudokuStructure(column);</span>
+
+<span class="fc" id="L52">        return new SudokuStructure(rowList);</span>
     }
 
-    public SudokuStructure getBox(int x, int y) {
-<span class="nc" id="L49">        int squareSize = 3;</span>
-<span class="nc" id="L50">        int xboundary = (int) Math.floor(x / squareSize) * squareSize;</span>
-<span class="nc" id="L51">        int yboundary = (int) Math.floor(y / squareSize) * squareSize;</span>
-<span class="nc" id="L52">        SudokuField[] boxArray = new SudokuField[dimension];</span>
-<span class="nc" id="L53">        int i = 0;</span>
+    // iterates through 9 elements vertically in the column passed in parameter,
+    // adding them to the list
+    public SudokuStructure getColumn(int y) {
+<span class="fc" id="L58">        List&lt;SudokuField&gt; columnList = Arrays.asList(new SudokuField[dimension]);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
+<span class="fc" id="L60">            columnList.set(i, new SudokuField(this.get(i, y)));</span>
+        }
 
-<span class="nc bnc" id="L55" title="All 2 branches missed.">        for (int xbox = xboundary; xbox &lt; xboundary + squareSize; xbox++) {</span>
-<span class="nc bnc" id="L56" title="All 2 branches missed.">            for (int ybox = yboundary; ybox &lt; yboundary + squareSize; ybox++) {</span>
-<span class="nc" id="L57">                boxArray[i] = new SudokuField(this.get(xbox, ybox));</span>
-<span class="nc" id="L58">                i++;</span>
+<span class="fc" id="L63">        return new SudokuStructure(columnList);</span>
+    }
+
+    // approximates coordinates to the corresponding sudoku box beginning and
+    // iterates through its elements adding them to the list
+    public SudokuStructure getBox(int x, int y) {
+<span class="fc" id="L69">        int squareSize = 3;</span>
+<span class="fc" id="L70">        int xboundary = (int) Math.floor(x / squareSize) * squareSize;</span>
+<span class="fc" id="L71">        int yboundary = (int) Math.floor(y / squareSize) * squareSize;</span>
+<span class="fc" id="L72">        List&lt;SudokuField&gt; boxList = Arrays.asList(new SudokuField[dimension]);</span>
+<span class="fc" id="L73">        int i = 0;</span>
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        for (int xbox = xboundary; xbox &lt; xboundary + squareSize; xbox++) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            for (int ybox = yboundary; ybox &lt; yboundary + squareSize; ybox++) {</span>
+<span class="fc" id="L77">                boxList.set(i, new SudokuField(this.get(xbox, ybox)));</span>
+<span class="fc" id="L78">                i++;</span>
             }
         }
-<span class="nc" id="L61">        return new SudokuStructure(boxArray);</span>
+
+<span class="fc" id="L82">        return new SudokuStructure(boxList);</span>
     }
 
     public boolean checkBoard() {
-<span class="fc" id="L65">        Set&lt;Integer&gt; testSet = new HashSet&lt;&gt;();</span>
-        // check rows
-<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (int x = 0; x &lt; dimension; x++) {</span>
-<span class="fc" id="L68">            testSet.clear();</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">            for (int y = 0; y &lt; dimension; y++) {</span>
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">                if (testSet.add(this.get(x, y)) == false) {</span>
-<span class="nc" id="L71">                    return false; // repetition in a row</span>
-                }
+        // pass numbers from 1 to 9 to functions to get all rows and all columns
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        for (int i = 0; i &lt; dimension; i++) {</span>
+<span class="pc bpc" id="L88" title="2 of 4 branches missed.">            if (!getRow(i).verify() || !getColumn(i).verify()) {</span>
+<span class="nc" id="L89">                return false;</span>
             }
         }
 
-        // check columns
-<span class="fc bfc" id="L77" title="All 2 branches covered.">        for (int y = 0; y &lt; dimension; y++) {</span>
-<span class="fc" id="L78">            testSet.clear();</span>
-<span class="fc bfc" id="L79" title="All 2 branches covered.">            for (int x = 0; x &lt; dimension; x++) {</span>
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                if (testSet.add(this.get(x, y)) == false) {</span>
-<span class="nc" id="L81">                    return false; // repetition in a column</span>
+        // for less iterations gets box just once for each 3x3 sudoku box that is counted
+        // in the game rules, not all the boxes one can create on board (49 total boxes)
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        for (int y = 0; y &lt; dimension; y += 3) {</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">            for (int x = 0; x &lt; dimension; x += 3) {</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">                if (!getBox(x, y).verify()) {</span>
+<span class="nc" id="L98">                    return false;</span>
                 }
             }
         }
-
-        // check boxes
-<span class="fc" id="L87">        int squareSize = 3;</span>
-<span class="fc bfc" id="L88" title="All 2 branches covered.">        for (int x = 0; x &lt; dimension; x += squareSize) {</span>
-<span class="fc bfc" id="L89" title="All 2 branches covered.">            for (int y = 0; y &lt; dimension; y += squareSize) {</span>
-<span class="fc" id="L90">                testSet.clear();</span>
-<span class="fc bfc" id="L91" title="All 2 branches covered.">                for (int xinternal = x; xinternal &lt; squareSize; xinternal++) {</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">                    for (int yinternal = y; yinternal &lt; squareSize; yinternal++) {</span>
-<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                        if (testSet.add(this.get(xinternal, yinternal)) == false) {</span>
-<span class="nc" id="L94">                            return false;</span>
-                        }
-                    }
-                }
-            }
-        }
-
-<span class="fc" id="L101">    return true;</span>
+<span class="fc" id="L102">        return true;</span>
     }
 
-
+    // overridden method for testing purposes
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        if (obj == null) {</span>
-<span class="nc" id="L108">            return false;</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L109">            return false;</span>
         }
 
-<span class="fc bfc" id="L111" title="All 2 branches covered.">        if (this == obj) {</span>
-<span class="fc" id="L112">            return true;</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (this == obj) {</span>
+<span class="fc" id="L113">            return true;</span>
         }
 
-<span class="pc bpc" id="L115" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
-<span class="nc" id="L116">            return false;</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L117">            return false;</span>
         }
 
-<span class="fc" id="L119">        SudokuBoard objBoard = (SudokuBoard) obj;</span>
+<span class="fc" id="L120">        SudokuBoard objBoard = (SudokuBoard) obj;</span>
 
-<span class="pc bpc" id="L121" title="1 of 2 branches missed.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
-<span class="fc bfc" id="L123" title="All 2 branches covered.">                if (this.get(rowId, columnId) != objBoard.get(rowId, columnId)) {</span>
-<span class="fc" id="L124">                    return false;</span>
+<span class="pc bpc" id="L122" title="1 of 2 branches missed.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">                if (this.get(rowId, columnId) != objBoard.get(rowId, columnId)) {</span>
+<span class="fc" id="L125">                    return false;</span>
                 }
             }
         }
-<span class="nc" id="L128">        return true;</span>
+
+<span class="nc" id="L130">        return true;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

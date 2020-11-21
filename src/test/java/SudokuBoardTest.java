@@ -143,4 +143,37 @@ public class SudokuBoardTest {
         SudokuStructure testBox2 = testBoard.getBox(1, 1);
         assertEquals(testBox1, testBox2);
     }
+
+    @Test
+    public void differentBoardsDifferentHashCodesCheck() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard testBoard2= new SudokuBoard(new BacktrackingSudokuSolver());
+
+        assertNotEquals(testBoard1.hashCode(), testBoard2.hashCode());
+    }
+
+    @Test
+    public void sameBoardSameHashCodeCheck() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard testBoard2 = testBoard1;
+
+        assertEquals(testBoard1.hashCode(), testBoard2.hashCode());
+    }
+
+    @Test
+    public void differentBoardsEqualsFalseCheck() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard testBoard2= new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+        testBoard2.solveGame();
+        assertFalse(testBoard1.equals(testBoard2));
+    }
+
+    @Test
+    public void sameBoardEqualsTrueCheck() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard testBoard2 = testBoard1;
+        testBoard1.solveGame();
+        assertTrue(testBoard1.equals(testBoard2));
+    }
 }

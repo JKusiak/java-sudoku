@@ -1,5 +1,6 @@
 // This class works as column, row and box at once, as all of them are in fact 9 elements long
 // arrays of SudokuField objects
+import com.google.common.base.Objects;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -44,28 +45,29 @@ public class SudokuStructure {
 
 
     // overridden method for testing purposes
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
 
-        if (this == obj) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-
-        if (getClass() != obj.getClass()) {
+        if (!(o instanceof SudokuStructure)) {
             return false;
         }
+        SudokuStructure that = (SudokuStructure) o;
+        return Objects.equal(values, that.values);
+    }
 
-        SudokuStructure objStructure = (SudokuStructure) obj;
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(values);
+    }
 
-        for (int i = 0; i < values.size(); i++) {
-            if (objStructure.values.get(i).getFieldValue() != this.values.get(i).getFieldValue()) {
-                return false;
-            }
-        }
-
-        return true;
+    @Override
+    public String toString() {
+        return "SudokuStructure{"
+                + "values="
+                + values
+                + '}';
     }
 }

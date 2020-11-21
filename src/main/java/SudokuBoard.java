@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import com.google.common.base.Objects;
 import java.util.Arrays;
 import java.util.List;
 
@@ -128,5 +128,18 @@ public class SudokuBoard {
         }
 
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(board);
+    }
+
+    @Override
+    public String toString() {
+        return "SudokuBoard{"
+                + "board="
+                + Arrays.toString(board)
+                + '}';
     }
 }

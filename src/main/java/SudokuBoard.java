@@ -1,8 +1,10 @@
 import com.google.common.base.Objects;
+import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public class SudokuBoard {
+public class SudokuBoard implements Serializable {
     public static final int dimension = 9;
     public static final int empty = 0;
     private SudokuField[][] board = new SudokuField[dimension][dimension];
@@ -43,6 +45,7 @@ public class SudokuBoard {
         // this one doesn't propagate changes to the array, just deletes it as garbage
         // just after creating a new list, so we can't use it here
         //List<SudokuField> rowList = new ArrayList(Arrays.asList(new SudokuField[dimension]));
+
         List<SudokuField> rowList = Arrays.asList(new SudokuField[dimension]);
 
         for (int i = 0; i < dimension; i++) {

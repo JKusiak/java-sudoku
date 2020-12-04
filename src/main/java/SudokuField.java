@@ -1,6 +1,7 @@
 import com.google.common.base.Objects;
+import java.io.Serializable;
 
-public class SudokuField {
+public class SudokuField implements Serializable {
     private int value;
 
     // non - parametrized constructor passing 0 value to the field object

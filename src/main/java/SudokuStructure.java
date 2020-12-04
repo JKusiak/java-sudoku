@@ -1,6 +1,7 @@
 // This class works as column, row and box at once, as all of them are in fact 9 elements long
 // arrays of SudokuField objects
 import com.google.common.base.Objects;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 
-public class SudokuStructure {
+public class SudokuStructure implements Serializable {
     private List<SudokuField> values = Arrays.asList(new SudokuField[SudokuBoard.dimension]);
 
     // parametrized constructor that adds values passed to it to the structure object

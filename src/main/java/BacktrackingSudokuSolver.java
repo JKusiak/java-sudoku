@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BacktrackingSudokuSolver implements SudokuSolver {
+public class BacktrackingSudokuSolver implements SudokuSolver, Serializable {
 
     // final function that creates empty board, initializes it with random numbers and solves
     public void solve(SudokuBoard board) {

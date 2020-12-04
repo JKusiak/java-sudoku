@@ -1,6 +1,10 @@
+SudokuField.class
+FileSudokuBoardDao$MyIoException.class
+SudokuStructure.class
+FileSudokuBoardDao.class
 BacktrackingSudokuSolver$1.class
 SudokuSolver.class
-SudokuField.class
 BacktrackingSudokuSolver.class
-SudokuStructure.class
+Dao.class
+SudokuBoardDaoFactory.class
 SudokuBoard.class

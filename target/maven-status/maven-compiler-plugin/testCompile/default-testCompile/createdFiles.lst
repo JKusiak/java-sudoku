@@ -1,3 +1,4 @@
 SudokuFieldTest.class
+SudokuBoardDaoTest.class
 SudokuBoardTest.class
 SudokuStructureTest.class

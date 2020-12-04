@@ -6,8 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Sudoku_JK" />
+        <module name="Model" />
+        <module name="View" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Model" target="11" />
+      <module name="Project" target="11" />
+      <module name="View" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -36,6 +36,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Project" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -71,6 +88,16 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model" />
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project" />
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.SudokuBoardDaoTest">
     <configuration name="All in Sudoku_JK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -150,7 +177,13 @@
       <workItem from="1605915355888" duration="4583000" />
       <workItem from="1606128627943" duration="2633000" />
       <workItem from="1606594846087" duration="1693000" />
-      <workItem from="1607005102306" duration="22600000" />
+      <workItem from="1607005102306" duration="26574000" />
+      <workItem from="1607106198008" duration="5000" />
+      <workItem from="1607106208208" duration="392000" />
+      <workItem from="1607106628005" duration="313000" />
+      <workItem from="1607106959257" duration="16000" />
+      <workItem from="1607106985413" duration="222000" />
+      <workItem from="1607107222221" duration="2740000" />
     </task>
     <servers />
   </component>
@@ -158,10 +191,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="791" y="130" key="#Project_Structure" timestamp="1603636958841">
+    <state x="508" y="123" key="#Project_Structure" timestamp="1607109884393">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="791" y="130" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1603636958841" />
+    <state x="508" y="123" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607109884393" />
     <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605127351648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -170,34 +203,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="419" y="441" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607036911628" />
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1607106709892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607106709892" />
     <state x="546" y="454" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605483122313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="546" y="454" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605483122313" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603635808024">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607107202568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603635808024" />
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1607101954521">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607107202568" />
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1607110070252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607101954521" />
-    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1607101954520">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
+    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1607110070252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607101954520" />
-    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1607101954520">
+    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
+    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1607110070252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607101954520" />
-    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1607101954520">
+    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1607110070252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607101954520" />
-    <state x="516" y="142" key="SettingsEditor" timestamp="1606130145458">
+    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
+    <state x="516" y="142" key="SettingsEditor" timestamp="1607107303988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="142" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606130145458" />
+    <state x="516" y="142" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607107303988" />
     <state x="594" y="205" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1604315353512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -214,10 +251,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605829956672" />
-    <state x="342" y="215" key="new project wizard" timestamp="1605127298474">
+    <state x="342" y="215" key="new project wizard" timestamp="1607108391499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="342" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1605127298474" />
+    <state x="342" y="215" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1607108391499" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1603061604444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

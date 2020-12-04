@@ -1,0 +1,10 @@
+dao\FileSudokuBoardDao$MyIoException.class
+sudoku\SudokuBoard.class
+solver\BacktrackingSudokuSolver$1.class
+sudoku\SudokuField.class
+dao\Dao.class
+dao\FileSudokuBoardDao.class
+solver\BacktrackingSudokuSolver.class
+dao\SudokuBoardDaoFactory.class
+sudoku\SudokuStructure.class
+solver\SudokuSolver.class

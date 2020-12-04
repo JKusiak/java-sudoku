@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Model_Project,dao,FileSudokuBoardDao,7,55,0,0,4,16,2,3,2,3
+Model_Project,dao,FileSudokuBoardDao.MyIoException,0,7,0,0,0,3,0,1,0,1
+Model_Project,dao,SudokuBoardDaoFactory,0,5,0,0,0,1,0,1,0,1
+Model_Project,sudoku,SudokuBoard,13,271,5,31,6,49,6,24,1,11
+Model_Project,sudoku,SudokuField,2,53,1,5,1,16,1,9,0,7
+Model_Project,sudoku,SudokuStructure,4,106,2,10,2,23,2,10,0,6
+Model_Project,solver,BacktrackingSudokuSolver,0,218,0,38,0,45,0,28,0,9
+Model_Project,solver,BacktrackingSudokuSolver.new ArrayList() {...},0,51,0,0,0,11,0,1,0,1

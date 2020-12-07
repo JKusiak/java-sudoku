@@ -10,7 +10,7 @@ import java.util.Set;
 
 // This class works as column, row and box at once, as all of them are in fact 9 elements long
 // arrays of SudokuBoard.SudokuField objects
-public class SudokuStructure implements Serializable {
+public class SudokuStructure implements Serializable, Cloneable {
     private List<SudokuField> values = Arrays.asList(new SudokuField[SudokuBoard.dimension]);
 
     // parametrized constructor that adds values passed to it to the structure object
@@ -71,5 +71,14 @@ public class SudokuStructure implements Serializable {
                 + "values="
                 + values
                 + '}';
+    }
+
+    // this method creates a copy of an object without maintaining connection to the
+    // parent object, all changes in the first object after clone won't affect
+    // object created from it
+    @Override
+    public SudokuStructure clone() throws CloneNotSupportedException {
+        return (SudokuStructure) super.clone();
+        //        return new SudokuStructure(value);
     }
 }

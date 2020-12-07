@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2020</copyright>
     <item>
-      <title>File: 8,
+      <title>File: 1,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,105 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#dao.FileSudokuBoardDao.java">dao/FileSudokuBoardDao.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#dao.SudokuBoardDaoFactory.java">dao/SudokuBoardDaoFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#solver.BacktrackingSudokuSolver.java">solver/BacktrackingSudokuSolver.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#solver.SudokuSolver.java">solver/SudokuSolver.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#sudoku.SudokuField.java">sudoku/SudokuField.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#sudoku.SudokuStructure.java">sudoku/SudokuStructure.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#sudoku.SudokuBoard.java">sudoku/SudokuBoard.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#dao.Dao.java">dao/Dao.java</a>
                 </td>
                 <td>
                   0

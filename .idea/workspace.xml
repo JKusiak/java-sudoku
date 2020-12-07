@@ -50,6 +50,10 @@
     <expand />
     <select />
   </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="Project" />
   </component>
@@ -59,6 +63,8 @@
         <option value="JavaFXApplication" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -84,26 +90,27 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model" />
-      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project" />
       <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model" />
+      <recent name="D:\Dokumenty\Studia_poli\Java_komp\Project" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.SudokuBoardDaoTest">
-    <configuration name="All in Sudoku_JK" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sudoku_JK" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+  <component name="RunManager" selected="Application.SudokuApp">
+    <configuration name="SudokuApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="SudokuApp" />
+      <module name="View" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,16 +120,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SudokuBoardDaoTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SudokuBoardDaoTest.SudokuBoardDao_WriteToFile_FileCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Sudoku_JK" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SudokuBoardDaoTest" />
-      <option name="METHOD_NAME" value="SudokuBoardDao_WriteToFile_FileCreated" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,12 +134,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SudokuBoardTest.desperacja" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Model" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SudokuBoardTest" />
+      <option name="METHOD_NAME" value="desperacja" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudokuFieldTest.sudokuFieldCloneCorrect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Model" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SudokuFieldTest" />
+      <option name="METHOD_NAME" value="sudokuFieldCloneCorrect" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.SudokuApp" />
+      <item itemvalue="JUnit.SudokuBoardDaoTest" />
+      <item itemvalue="JUnit.SudokuBoardDaoTest.superBasicSomething" />
+      <item itemvalue="JUnit.SudokuFieldTest.sudokuFieldCloneCorrect" />
+      <item itemvalue="JUnit.SudokuBoardTest.desperacja" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SudokuApp" />
+        <item itemvalue="JUnit.SudokuBoardTest.desperacja" />
+        <item itemvalue="JUnit.SudokuFieldTest.sudokuFieldCloneCorrect" />
         <item itemvalue="JUnit.SudokuBoardDaoTest" />
         <item itemvalue="JUnit.SudokuBoardDaoTest.superBasicSomething" />
-        <item itemvalue="JUnit.SudokuBoardDaoTest.SudokuBoardDao_WriteToFile_FileCreated" />
-        <item itemvalue="JUnit.All in Sudoku_JK" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +208,8 @@
       <workItem from="1607106628005" duration="313000" />
       <workItem from="1607106959257" duration="16000" />
       <workItem from="1607106985413" duration="222000" />
-      <workItem from="1607107222221" duration="2740000" />
+      <workItem from="1607107222221" duration="23603000" />
+      <workItem from="1607283833176" duration="25270000" />
     </task>
     <servers />
   </component>
@@ -191,18 +217,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="508" y="123" key="#Project_Structure" timestamp="1607109884393">
+    <state x="508" y="123" key="#Project_Structure" timestamp="1607283956786">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="508" y="123" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607109884393" />
-    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605127351648">
+    <state x="508" y="123" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607283956786" />
+    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607184181923">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605127351648" />
-    <state x="419" y="441" key="#com.intellij.ide.util.MemberChooser" timestamp="1607036911628">
+    <state x="483" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607184181923" />
+    <state x="419" y="441" key="#com.intellij.ide.util.MemberChooser" timestamp="1607183683408">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="419" y="441" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607036911628" />
+    <state x="419" y="441" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607183683408" />
     <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1607106709892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -211,30 +237,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="546" y="454" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605483122313" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607107202568">
+    <state width="434" height="466" key="DebuggerActiveHint" timestamp="1607291605035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607107202568" />
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1607110070252">
+    <state width="434" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1607291605035" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1607184324089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
-    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1607110070252">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607184324089" />
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1607349056975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
-    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1607110070252">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607349056975" />
+    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1607349056974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
-    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1607110070252">
+    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607349056974" />
+    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1607349056974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607110070252" />
-    <state x="516" y="142" key="SettingsEditor" timestamp="1607107303988">
+    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607349056974" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1607349056975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="142" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607107303988" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607349056975" />
+    <state width="1877" height="277" key="GridCell.Tab.1.bottom" timestamp="1607291697255">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607291697255" />
+    <state width="1877" height="277" key="GridCell.Tab.1.center" timestamp="1607291697254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607291697254" />
+    <state width="1877" height="277" key="GridCell.Tab.1.left" timestamp="1607291697254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607291697254" />
+    <state width="1877" height="277" key="GridCell.Tab.1.right" timestamp="1607291697254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607291697254" />
+    <state x="516" y="142" key="SettingsEditor" timestamp="1607284383852">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="516" y="142" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607284383852" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1607290948514">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1607290948514" />
     <state x="594" y="205" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1604315353512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -259,9 +309,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603061604444" />
-    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup" timestamp="1605479929623">
+    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup" timestamp="1607281805006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605479929623" />
+    <state x="497" y="354" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607281805006" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="board.board[3]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

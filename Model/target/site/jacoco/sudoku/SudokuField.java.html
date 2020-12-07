@@ -3,7 +3,7 @@
 import com.google.common.base.Objects;
 import java.io.Serializable;
 
-public class SudokuField implements Serializable {
+public class SudokuField implements Serializable, Cloneable, Comparable&lt;SudokuField&gt; {
     private int value;
 
     // non - parametrized constructor passing 0 value to the field object
@@ -48,5 +48,30 @@ public class SudokuField implements Serializable {
                 + value
                 + '}';
     }
+
+    // this method creates a copy of an object without maintaining connection to the
+    // parent object, all changes in the first object after clone won't affect
+    // object created from it
+    @Override
+    public SudokuField clone() throws CloneNotSupportedException {
+<span class="fc" id="L57">        return (SudokuField) super.clone();</span>
+        //        return new SudokuField(value);
+    }
+
+    // compares two objects and returns values 1, 0, -1 depending on which object has higher value
+    // implementing this interface allows to sort also arrays of objects, not numbers
+    @Override
+    public int compareTo(SudokuField sudokuField) {
+<span class="fc" id="L65">        return Integer.compare(value, sudokuField.value);</span>
+
+        //        if (value &gt; sudokuField.value){
+        //            return 1;
+        //        } else if (value == sudokuField.value) {
+        //            return 0;
+        //        }else {
+        //            return -1;
+        //        }
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

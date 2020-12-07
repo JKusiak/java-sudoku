@@ -180,4 +180,18 @@ public class SudokuBoardTest {
         testBoard1.solveGame();
         assertTrue(testBoard1.equals(testBoard2));
     }
+
+    @Test
+    public void sudokuBoardCloneCorrect() throws CloneNotSupportedException {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+        SudokuBoard testBoard2 = testBoard1.clone();
+
+        assertNotSame(testBoard1, testBoard2);
+        assertEquals(testBoard1, testBoard2);
+
+        testBoard2.set(5, 5, 0);
+
+        assertNotEquals(testBoard2, testBoard1);
+    }
 }

@@ -63,4 +63,23 @@ public class SudokuFieldTest {
         String testString = "SudokuBoard.SudokuField{value=1}";
         assertEquals(testString, testField.toString());
     }
+
+    @Test
+    public void sudokuFieldCloneCorrect() throws CloneNotSupportedException {
+        SudokuField testField1 = new SudokuField(1);
+        SudokuField testField2= testField1.clone();
+
+        assertNotSame(testField1, testField2);
+        assertEquals(testField1, testField2);
+    }
+
+    @Test
+    public void sudokuFieldComparisonCorrect() {
+        SudokuField testField1 = new SudokuField(1);
+        SudokuField testField2 = new SudokuField(9);
+
+        assertEquals(1, testField2.compareTo(testField1));
+        assertEquals(0, testField1.compareTo(testField1));
+        assertEquals(-1, testField1.compareTo(testField2));
+    }
 }

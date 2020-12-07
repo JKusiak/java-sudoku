@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import solver.SudokuSolver;
 
-public class SudokuBoard implements Serializable {
+public class SudokuBoard implements Serializable, Cloneable {
     public static final int dimension = 9;
     public static final int empty = 0;
     private SudokuField[][] board = new SudokuField[dimension][dimension];
@@ -146,5 +146,21 @@ public class SudokuBoard implements Serializable {
                 + "board="
                 + Arrays.toString(board)
                 + '}';
+    }
+
+    // this method creates a copy of an object without maintaining connection to the
+    // parent object, all changes in the first object after clone won't affect
+    // object created from it
+    @Override
+    public SudokuBoard clone() throws CloneNotSupportedException {
+//       SudokuBoard board = (SudokuBoard) super.clone();
+
+        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.getCopy());
+        for (int rowId = 0; rowId < board.length; rowId++) {
+            for (int columnId = 0; columnId < board[rowId].length; columnId++) {
+                newBoard.set(rowId, columnId, this.get(rowId, columnId));
+            }
+        }
+        return newBoard;
     }
 }

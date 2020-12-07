@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import solver.SudokuSolver;
 
-public class SudokuBoard implements Serializable {
+public class SudokuBoard implements Serializable, Cloneable {
     public static final int dimension = 9;
     public static final int empty = 0;
 <span class="fc" id="L12">    private SudokuField[][] board = new SudokuField[dimension][dimension];</span>
@@ -146,6 +146,21 @@ public class SudokuBoard implements Serializable {
                 + &quot;board=&quot;
 <span class="nc" id="L147">                + Arrays.toString(board)</span>
                 + '}';
+    }
+
+    // this method creates a copy of an object without maintaining connection to the
+    // parent object, all changes in the first object after clone won't affect
+    // object created from it
+    @Override
+    public SudokuBoard clone() throws CloneNotSupportedException {
+        // return (SudokuBoard) super.clone();
+<span class="fc" id="L157">        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.getCopy());</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
+<span class="fc" id="L160">                newBoard.set(rowId, columnId, this.get(rowId, columnId));</span>
+            }
+        }
+<span class="fc" id="L163">        return newBoard;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

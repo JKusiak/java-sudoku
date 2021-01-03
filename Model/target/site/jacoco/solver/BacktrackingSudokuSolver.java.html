@@ -116,8 +116,9 @@ import sudoku.SudokuBoard;
 <span class="fc" id="L116">        return true; // sudoku solved</span>
     }
 
-    public SudokuSolver getCopy() {
-<span class="fc" id="L120">        return new BacktrackingSudokuSolver();</span>
+    @Override
+    public SudokuSolver clone() {
+<span class="fc" id="L121">        return new BacktrackingSudokuSolver();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

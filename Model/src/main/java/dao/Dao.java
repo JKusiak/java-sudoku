@@ -1,9 +1,10 @@
 package dao;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface Dao<T> {
-    T read() throws FileNotFoundException;
+    T read() throws IOException, ClassNotFoundException;
 
-    void write(T obj);
+    void write(T obj) throws IOException;
 }

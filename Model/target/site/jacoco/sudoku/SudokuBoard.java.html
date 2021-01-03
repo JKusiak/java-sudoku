@@ -153,14 +153,15 @@ public class SudokuBoard implements Serializable, Cloneable {
     // object created from it
     @Override
     public SudokuBoard clone() throws CloneNotSupportedException {
-        // return (SudokuBoard) super.clone();
-<span class="fc" id="L157">        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.getCopy());</span>
-<span class="fc bfc" id="L158" title="All 2 branches covered.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
-<span class="fc bfc" id="L159" title="All 2 branches covered.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
-<span class="fc" id="L160">                newBoard.set(rowId, columnId, this.get(rowId, columnId));</span>
+        // SudokuBoard board = (SudokuBoard) super.clone();
+
+<span class="fc" id="L158">        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.clone());</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">        for (int rowId = 0; rowId &lt; board.length; rowId++) {</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">            for (int columnId = 0; columnId &lt; board[rowId].length; columnId++) {</span>
+<span class="fc" id="L161">                newBoard.set(rowId, columnId, this.get(rowId, columnId));</span>
             }
         }
-<span class="fc" id="L163">        return newBoard;</span>
+<span class="fc" id="L164">        return newBoard;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

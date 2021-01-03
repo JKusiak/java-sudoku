@@ -16,7 +16,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     }
 
     @Override
-    public SudokuBoard read() {
+    public SudokuBoard read() throws IOException, ClassNotFoundException {
         // try-with-resources works, because we implement java.lang.AutoCloseable.
         // Otherwise, the case should ne written manually like that:
         //        finally {
@@ -30,22 +30,15 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
         //        }
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {
             SudokuBoard board = (SudokuBoard) inputStream.readObject();
-            //System.out.println(board);
             return board;
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new MyIoException("IO Exception on reading board from file");
         }
     }
 
     @Override
-    public void write(SudokuBoard board) {
+    public void write(SudokuBoard board) throws IOException {
         try (ObjectOutputStream outputStream =
                      new ObjectOutputStream(new FileOutputStream(fileName))) {
             outputStream.writeObject(board);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new MyIoException("IO Exception on writing board to file");
         }
     }
 

@@ -153,9 +153,9 @@ public class SudokuBoard implements Serializable, Cloneable {
     // object created from it
     @Override
     public SudokuBoard clone() throws CloneNotSupportedException {
-//       SudokuBoard board = (SudokuBoard) super.clone();
+        // SudokuBoard board = (SudokuBoard) super.clone();
 
-        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.getCopy());
+        SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.clone());
         for (int rowId = 0; rowId < board.length; rowId++) {
             for (int columnId = 0; columnId < board[rowId].length; columnId++) {
                 newBoard.set(rowId, columnId, this.get(rowId, columnId));

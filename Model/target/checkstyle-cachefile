@@ -1,10 +1,10 @@
-#Mon Dec 07 13:24:50 CET 2020
+#Sun Jan 03 14:00:45 CET 2021
 configuration*?=AB71A7D60A96319838DAF7FDD91CB922FB0B5322
-D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\BacktrackingSudokuSolver.java=1607176415320
-D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\SudokuSolver.java=1607176168088
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\BacktrackingSudokuSolver.java=1609675629417
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\SudokuSolver.java=1609678064113
 D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuField.java=1607178747798
-D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\Dao.java=1607109813609
-D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\FileSudokuBoardDao.java=1607109941369
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\Dao.java=1609675389405
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\FileSudokuBoardDao.java=1609678043546
 D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuStructure.java=1607178689885
-D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuBoard.java=1607343862098
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuBoard.java=1609675680524
 D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\SudokuBoardDaoFactory.java=1607109886381

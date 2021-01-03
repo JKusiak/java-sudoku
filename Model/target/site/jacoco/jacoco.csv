@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Model_Project,dao,FileSudokuBoardDao,7,55,0,0,4,16,2,3,2,3
-Model_Project,dao,FileSudokuBoardDao.MyIoException,0,7,0,0,0,3,0,1,0,1
+Model_Project,dao,FileSudokuBoardDao,7,36,0,0,4,9,2,3,2,3
+Model_Project,dao,FileSudokuBoardDao.MyIoException,7,0,0,0,3,0,1,0,1,0
 Model_Project,dao,SudokuBoardDaoFactory,0,5,0,0,0,1,0,1,0,1
 Model_Project,sudoku,SudokuBoard,13,308,5,35,6,54,6,27,1,12
 Model_Project,sudoku,SudokuField,2,63,1,5,1,18,1,11,0,9

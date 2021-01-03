@@ -8,13 +8,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class SudokuBoardDaoTest {
 
-    static String tempDirectory = "C:/Users/Julek/Desktop/Temp";
+    static String tempDirectory = "Desktop/Temp";
     static String tempFile = tempDirectory + "/daoTest.txt";
 
     static boolean deleteDirectory(File directoryToDelete) {
@@ -44,7 +46,11 @@ public class SudokuBoardDaoTest {
         FileSudokuBoardDao dao = new FileSudokuBoardDao(tempFile);
         SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
         board.solveGame();
-        dao.write(board);
+        try {
+            dao.write(board);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertEquals(true, new File(tempFile).isFile());
     }
 
@@ -57,18 +63,28 @@ public class SudokuBoardDaoTest {
     public void readWriteBoardToFileCompareBoardsVerifySame() {
         FileSudokuBoardDao dao = new FileSudokuBoardDao(tempFile);
         SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
+        SudokuBoard boardFromFile = null;
 
         board.solveGame();
-        dao.write(board);
+        try {
+            dao.write(board);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        SudokuBoard boardFromFile = dao.read();
+        try {
+            boardFromFile = dao.read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         assertTrue(board.equals(boardFromFile));
     }
 
     @Test
     public void wrongDirectoryWriteThrowsIOExceptionCheck() {
-        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
+//        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
+        Assertions.assertThrows(FileNotFoundException.class, () -> {
             //here a path to directory, not file, to cause IOException
             FileSudokuBoardDao dao = new FileSudokuBoardDao(tempDirectory);
             SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
@@ -78,7 +94,8 @@ public class SudokuBoardDaoTest {
 
     @Test
     public void wrongDirectoryReadThrowsIOExceptionCheck() {
-        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
+//        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
+        Assertions.assertThrows(FileNotFoundException.class, () -> {
             //here a path to directory, not file, to cause IOException
             FileSudokuBoardDao dao = new FileSudokuBoardDao(tempDirectory);
             dao.read();

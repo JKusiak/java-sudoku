@@ -4,6 +4,11 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import solver.SudokuSolver;
 
 public class SudokuBoard implements Serializable, Cloneable {
@@ -11,6 +16,9 @@ public class SudokuBoard implements Serializable, Cloneable {
     public static final int empty = 0;
     private SudokuField[][] board = new SudokuField[dimension][dimension];
     private SudokuSolver sudokuSolver;
+
+    private static final Logger logger = LogManager.getLogger(SudokuBoard.class.getPackage().getName());
+
 
 
     // parametrized constructor passing type of solving algorithm to the board object
@@ -91,6 +99,7 @@ public class SudokuBoard implements Serializable, Cloneable {
         // pass numbers from 1 to 9 to functions to get all rows and all columns
         for (int i = 0; i < dimension; i++) {
             if (!getRow(i).verify() || !getColumn(i).verify()) {
+                logger.debug("Board layout is incorrect");
                 return false;
             }
         }
@@ -100,10 +109,12 @@ public class SudokuBoard implements Serializable, Cloneable {
         for (int y = 0; y < dimension; y += 3) {
             for (int x = 0; x < dimension; x += 3) {
                 if (!getBox(x, y).verify()) {
+                    logger.debug("Board layout is incorrect");
                     return false;
                 }
             }
         }
+        logger.debug("Board layout is correct");
         return true;
     }
 
@@ -152,7 +163,7 @@ public class SudokuBoard implements Serializable, Cloneable {
     // parent object, all changes in the first object after clone won't affect
     // object created from it
     @Override
-    public SudokuBoard clone() throws CloneNotSupportedException {
+    public SudokuBoard clone() {
         // SudokuBoard board = (SudokuBoard) super.clone();
 
         SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.clone());

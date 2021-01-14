@@ -5,41 +5,46 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+import exceptions.NoDataException;
+import exceptions.NoSuchFileException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import sudoku.SudokuBoard;
 
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     public String fileName;
+    private static final Logger logger = LogManager.getLogger(FileSudokuBoardDao.class.getPackage().getName());
+
 
     public FileSudokuBoardDao(String newFileName) {
         fileName = newFileName;
     }
 
     @Override
-    public SudokuBoard read() throws IOException, ClassNotFoundException {
-        // try-with-resources works, because we implement java.lang.AutoCloseable.
-        // Otherwise, the case should ne written manually like that:
-        //        finally {
-        //            if (inputStream != null) {
-        //                try {
-        //                    inputStream.close();
-        //                } catch (IOException e) {
-        //                    e.printStackTrace();
-        //                }
-        //            }
-        //        }
+    public SudokuBoard read() throws NoDataException, NoSuchFileException {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(fileName))) {
             SudokuBoard board = (SudokuBoard) inputStream.readObject();
+
+            logger.debug("Loaded correctly");
             return board;
+        } catch (ClassNotFoundException e) {
+            throw new NoDataException();
+        } catch(IOException e) {
+            throw new NoSuchFileException("There is no such file", e);
         }
     }
 
     @Override
-    public void write(SudokuBoard board) throws IOException {
+    public void write(SudokuBoard board) throws NoSuchFileException {
         try (ObjectOutputStream outputStream =
                      new ObjectOutputStream(new FileOutputStream(fileName))) {
             outputStream.writeObject(board);
+        } catch (IOException e){
+            throw new NoSuchFileException("There is no such file", e);
         }
+        logger.debug("Saved correctly");
     }
 
     @Override
@@ -55,13 +60,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     //   because it returned a severe error of using this method
     @Override
     public void finalize() throws Throwable {
-        System.out.println("Calling finalize() method");
         super.finalize();
-    }
-
-    public class MyIoException extends RuntimeException {
-        public MyIoException(String message) {
-            super(message);
-        }
+        logger.info("Called finalize() method");
     }
 }

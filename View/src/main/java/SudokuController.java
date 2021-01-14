@@ -1,9 +1,11 @@
 import dao.FileSudokuBoardDao;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import exceptions.NoDataException;
+import exceptions.NoSuchFileException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import solver.BacktrackingSudokuSolver;
 import sudoku.SudokuBoard;
 
@@ -23,6 +27,8 @@ public class SudokuController {
     SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
     ResourceBundle langBundle = ResourceBundle.getBundle("Lang", Locale.getDefault());
     String savingPath = System.getProperty("user.dir") + "/sudokuSave.txt";
+
+    Logger logger = LogManager.getLogger("general");
 
     @FXML private GridPane sudokuGrid;
     @FXML private Label message;
@@ -44,11 +50,13 @@ public class SudokuController {
     @FXML
     public void checkGame() {
         if (board.checkBoard()) {
-            message.setText(langBundle.getString("message_correct"));
+            message.setText(langBundle.getString("layout_correct"));
             message.setTextFill(Color.GREEN);
+            logger.debug(langBundle.getString("layout_correct"));
         } else {
-            message.setText(langBundle.getString("message_incorrect"));
+            message.setText(langBundle.getString("layout_incorrect"));
             message.setTextFill(Color.RED);
+            logger.debug(langBundle.getString("layout_incorrect"));
         }
     }
 
@@ -57,11 +65,13 @@ public class SudokuController {
         try {
             FileSudokuBoardDao dao = new FileSudokuBoardDao(savingPath);
             dao.write(board);
-            message.setText("Saved");
+            message.setText(langBundle.getString("save_correct"));
             message.setTextFill(Color.GREEN);
-        } catch (Exception e) {
-            message.setText("Sorry something went wrong");
+            logger.debug(langBundle.getString("save_correct"));
+        } catch (NoSuchFileException e) {
+            message.setText(langBundle.getString("save_wrong"));
             message.setTextFill(Color.RED);
+            logger.debug(langBundle.getString("save_wrong"));
         }
     }
 
@@ -71,16 +81,20 @@ public class SudokuController {
         try {
             FileSudokuBoardDao dao = new FileSudokuBoardDao(savingPath);
             board = dao.read();
+
             bindToGrid(board);
             drawSudoku();
-            message.setText("Loaded");
+            message.setText(langBundle.getString("load_correct"));
             message.setTextFill(Color.GREEN);
-        } catch (FileNotFoundException e) {
-            message.setText("No board to load");
+            logger.debug(langBundle.getString("load_correct"));
+        } catch (NoSuchFileException e) {
+            message.setText(langBundle.getString("load_no_file"));
             message.setTextFill(Color.BLACK);
-        } catch (Exception e) {
-            message.setText("Sorry something went wrong");
+            logger.debug(langBundle.getString("load_no_file"));
+        } catch (NoDataException e) {
+            message.setText(langBundle.getString("load_empty_file"));
             message.setTextFill(Color.RED);
+            logger.debug(langBundle.getString("load_empty_file"));
         }
     }
 

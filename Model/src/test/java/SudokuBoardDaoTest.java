@@ -1,5 +1,7 @@
 import dao.FileSudokuBoardDao;
 import dao.SudokuBoardDaoFactory;
+import exceptions.NoDataException;
+import exceptions.NoSuchFileException;
 import solver.BacktrackingSudokuSolver;
 import sudoku.SudokuBoard;
 import org.junit.jupiter.api.AfterAll;
@@ -82,10 +84,9 @@ public class SudokuBoardDaoTest {
     }
 
     @Test
-    public void wrongDirectoryWriteThrowsIOExceptionCheck() {
-//        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
-        Assertions.assertThrows(FileNotFoundException.class, () -> {
-            //here a path to directory, not file, to cause IOException
+    public void wrongDirectoryWriteThrowsOwnExceptionCheck() {
+        Assertions.assertThrows(NoSuchFileException.class, () -> {
+            //here a path to directory, not file, to cause exception
             FileSudokuBoardDao dao = new FileSudokuBoardDao(tempDirectory);
             SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
             dao.write(board);
@@ -93,9 +94,8 @@ public class SudokuBoardDaoTest {
     }
 
     @Test
-    public void wrongDirectoryReadThrowsIOExceptionCheck() {
-//        Assertions.assertThrows(FileSudokuBoardDao.MyIoException.class, () -> {
-        Assertions.assertThrows(FileNotFoundException.class, () -> {
+    public void wrongDirectoryReadThrowsOwnExceptionCheck() {
+        Assertions.assertThrows(NoSuchFileException.class, () -> {
             //here a path to directory, not file, to cause IOException
             FileSudokuBoardDao dao = new FileSudokuBoardDao(tempDirectory);
             dao.read();

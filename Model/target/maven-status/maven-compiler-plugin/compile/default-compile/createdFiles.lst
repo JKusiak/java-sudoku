@@ -1,10 +1,12 @@
-dao\FileSudokuBoardDao$MyIoException.class
-sudoku\SudokuBoard.class
 solver\BacktrackingSudokuSolver$1.class
 sudoku\SudokuField.class
+exceptions\NoDataException.class
+dao\SudokuBoardDaoFactory.class
+sudoku\SudokuBoard.class
 dao\Dao.class
+exceptions\NoSuchFileException.class
 dao\FileSudokuBoardDao.class
 solver\BacktrackingSudokuSolver.class
-dao\SudokuBoardDaoFactory.class
+exceptions\MyFileReadingException.class
 sudoku\SudokuStructure.class
 solver\SudokuSolver.class

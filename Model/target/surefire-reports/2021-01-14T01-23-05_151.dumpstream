@@ -1,4 +1,4 @@
-# Created at 2021-01-14T00:59:43.395
+# Created at 2021-01-14T01:23:06.075
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Dokumenty\Studia_poli\Java_komp\Project\Model\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 

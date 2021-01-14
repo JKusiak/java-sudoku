@@ -3,6 +3,7 @@ sudoku\SudokuField.class
 exceptions\NoDataException.class
 dao\SudokuBoardDaoFactory.class
 sudoku\SudokuBoard.class
+exceptions\LoadNewFragmentException.class
 dao\Dao.class
 exceptions\NoSuchFileException.class
 dao\FileSudokuBoardDao.class

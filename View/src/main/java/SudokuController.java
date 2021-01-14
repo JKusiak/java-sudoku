@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import exceptions.LoadNewFragmentException;
 import exceptions.NoDataException;
 import exceptions.NoSuchFileException;
 import javafx.event.ActionEvent;
@@ -99,10 +100,15 @@ public class SudokuController {
     }
 
     @FXML
-    private void backToMenu(ActionEvent event) throws IOException {
+    private void backToMenu(ActionEvent event) throws LoadNewFragmentException {
         event.consume();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent menu = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"), langBundle);
+        Parent menu = null;
+        try {
+            menu = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"), langBundle);
+        } catch (IOException e) {
+            throw new LoadNewFragmentException("Can't go back to Menu fragment", e);
+        }
         Scene sudokuScene = new Scene(menu);
         stage.setScene(sudokuScene);
     }

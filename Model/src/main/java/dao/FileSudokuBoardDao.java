@@ -48,7 +48,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
     }
 
     // Oracle java docs state that the method is deprecated for several reasons:

@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import exceptions.LoadNewFragmentException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -53,11 +55,16 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    public void clickPlay(ActionEvent event) throws IOException {
+    public void clickPlay(ActionEvent event) throws LoadNewFragmentException {
         event.consume();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Sudoku.fxml"), langBundle);
-        Parent sudokuLayout = loader.load();
+        Parent sudokuLayout = null;
+        try {
+            sudokuLayout = loader.load();
+        } catch (IOException e) {
+            throw new LoadNewFragmentException("Can't load SudokuGame fragment", e);
+        }
 
         DifficultyLevels level = difficultyBox.getSelectionModel().getSelectedItem();
 

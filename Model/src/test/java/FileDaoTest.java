@@ -1,6 +1,5 @@
 import dao.FileSudokuBoardDao;
 import dao.SudokuBoardDaoFactory;
-import exceptions.NoDataException;
 import exceptions.NoSuchFileException;
 import solver.BacktrackingSudokuSolver;
 import sudoku.SudokuBoard;
@@ -10,13 +9,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class SudokuBoardDaoTest {
+public class FileDaoTest {
 
     static String tempDirectory = "Desktop/Temp";
     static String tempFile = tempDirectory + "/daoTest.txt";
@@ -40,8 +37,6 @@ public class SudokuBoardDaoTest {
     static void finalization() {
         deleteDirectory(new File(tempDirectory));
     }
-
-
 
     @Test
     public void writeToFileCreatesDirectory() {

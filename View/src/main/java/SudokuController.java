@@ -4,7 +4,9 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import dao.JdbcSudokuBoardDao;
 import exceptions.LoadNewFragmentException;
+import exceptions.NameExistsException;
 import exceptions.NoDataException;
 import exceptions.NoSuchFileException;
 import javafx.event.ActionEvent;
@@ -22,17 +24,25 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solver.BacktrackingSudokuSolver;
 import sudoku.SudokuBoard;
+import sudoku.SudokuField;
 
 
 public class SudokuController {
     SudokuBoard board = new SudokuBoard(new BacktrackingSudokuSolver());
     ResourceBundle langBundle = ResourceBundle.getBundle("Lang", Locale.getDefault());
     String savingPath = System.getProperty("user.dir") + "/sudokuSave.txt";
-
+    String gameToSave;
+    String allSavedGames = "List of all saved game names: \n";
     Logger logger = LogManager.getLogger("general");
+
+
 
     @FXML private GridPane sudokuGrid;
     @FXML private Label message;
+    @FXML private Label allGamesList;
+    @FXML private TextField gameNameToSave;
+
+
 
     public void startup(DifficultyLevels level) {
         board.solveGame();
@@ -40,6 +50,11 @@ public class SudokuController {
         bindToGrid(board);
         setDifficulty(board, level);
         drawSudoku();
+
+        gameNameToSave.textProperty().addListener((observable, oldValue, newValue) -> {
+            gameToSave = newValue;
+        });
+
     }
 
     @FXML
@@ -82,12 +97,8 @@ public class SudokuController {
         try {
             FileSudokuBoardDao dao = new FileSudokuBoardDao(savingPath);
             board = dao.read();
-
             bindToGrid(board);
             drawSudoku();
-            message.setText(langBundle.getString("load_correct"));
-            message.setTextFill(Color.GREEN);
-            logger.debug(langBundle.getString("load_correct"));
         } catch (NoSuchFileException e) {
             message.setText(langBundle.getString("load_no_file"));
             message.setTextFill(Color.BLACK);
@@ -97,6 +108,37 @@ public class SudokuController {
             message.setTextFill(Color.RED);
             logger.debug(langBundle.getString("load_empty_file"));
         }
+
+        message.setText(langBundle.getString("load_correct"));
+        message.setTextFill(Color.GREEN);
+        logger.debug(langBundle.getString("load_correct"));
+    }
+
+    @FXML
+    public void saveGameToDB() {
+        try {
+            JdbcSudokuBoardDao dao = new JdbcSudokuBoardDao(gameToSave);
+            dao.write(board);
+        } catch (NameExistsException e) {
+            message.setText(langBundle.getString("already_exists_db"));
+        }
+        allSavedGames += gameToSave + "\n";
+        allGamesList.setText(allSavedGames);
+        message.setText(langBundle.getString("write_db"));
+
+    }
+
+    @FXML
+    public void loadGameFromDB() {
+        JdbcSudokuBoardDao dao = new JdbcSudokuBoardDao(gameToSave);
+        board = dao.read();
+        SudokuField[][] newBoard = board.listToTwoDimensionArray(board.getFields());
+        board.setBoardFieldsArray(newBoard);
+        board.setSudokuSolver(new BacktrackingSudokuSolver());
+
+        bindToGrid(board);
+        drawSudoku();
+        message.setText(langBundle.getString("load_db"));
     }
 
     @FXML

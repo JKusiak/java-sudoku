@@ -6,13 +6,13 @@ public class SudokuFieldTest {
     @Test
     public void SudokuFieldConstructorValueCorrect() {
         SudokuField field = new SudokuField();
-        assertEquals(0, field.getFieldValue());
+        assertEquals(0, field.getValue());
     }
 
     @Test
     public void SudokuFieldConstructorParameterizedValueCorrect() {
         SudokuField field = new SudokuField(1);
-        assertEquals(1, field.getFieldValue());
+        assertEquals(1, field.getValue());
     }
 
     @Test

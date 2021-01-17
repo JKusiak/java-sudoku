@@ -1,7 +1,7 @@
 package exceptions;
 
 public class NoSuchFileException extends MyFileReadingException {
-    public NoSuchFileException(){
+    public NoSuchFileException() {
         super();
     }
 

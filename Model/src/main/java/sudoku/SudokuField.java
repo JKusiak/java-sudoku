@@ -2,26 +2,61 @@ package sudoku;
 
 import com.google.common.base.Objects;
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "FIELDS")
 public class SudokuField implements Serializable, Cloneable, Comparable<SudokuField> {
+    @Id
+    @GeneratedValue
+    @Column(name = "ID", unique = true, nullable = false)
+    private Long id;
+
+    @Column(name = "VALUE")
     private int value;
 
-    // non - parametrized constructor passing 0 value to the field object
-    public SudokuField() {
-        value = 0;
+    @ManyToOne
+    private SudokuBoard sudokuBoard;
+
+    public Long getId() {
+        return id;
     }
 
-    // parametrized constructor adding value passed to it to the field object
-    public SudokuField(int initVal) {
-        setFieldValue(initVal);
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public int getFieldValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setFieldValue(int newValue) {
+    public void setValue(int newValue) {
         value = newValue;
+    }
+
+    public void setSudokuBoard(SudokuBoard sudokuBoard) {
+        this.sudokuBoard = sudokuBoard;
+    }
+
+    public SudokuBoard getSudokuBoard(SudokuBoard sudokuBoard) {
+        return sudokuBoard;
+    }
+
+    public SudokuField() {
+
+    }
+
+    //----------------------------------------------------------------------------------
+
+    // parametrized constructor adding value passed to it to the field object
+    public SudokuField(int initVal) {
+        setValue(initVal);
     }
 
     @Override

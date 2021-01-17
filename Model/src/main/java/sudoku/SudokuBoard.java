@@ -2,38 +2,92 @@ package sudoku;
 
 import com.google.common.base.Objects;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solver.SudokuSolver;
 
+
+@Entity
+@Table(name = "BOARDS")
 public class SudokuBoard implements Serializable, Cloneable {
+    @Id
+    @GeneratedValue
+    @Column(name = "ID", unique = true, nullable = false)
+    private Long id;
+
+    @Column(name = "GAMENAME", unique = true)
+    private String gameName;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "BOARDS_ID")
+    private List<SudokuField> fields = new ArrayList<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public List<SudokuField> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<SudokuField> fields) {
+        this.fields = fields;
+    }
+
+    public void addField(SudokuField field) {
+        fields.add(field);
+        field.setSudokuBoard(null);
+    }
+
+    public SudokuBoard() {
+
+    }
+
+    //----------------------------------------------------------------------------------
+
     public static final int dimension = 9;
     public static final int empty = 0;
-    private SudokuField[][] board = new SudokuField[dimension][dimension];
+    @Transient
     private SudokuSolver sudokuSolver;
 
-    private static final Logger logger = LogManager.getLogger(SudokuBoard.class.getPackage().getName());
+    @Transient
+    private SudokuField[][] boardFieldsArray = new SudokuField[dimension][dimension];
 
-
+    private static final Logger logger =
+            LogManager.getLogger(SudokuBoard.class.getPackage().getName());
 
     // parametrized constructor passing type of solving algorithm to the board object
     public SudokuBoard(SudokuSolver solver) {
-        this();
-        sudokuSolver = solver;
-    }
-
-    // non - parametrized constructor passing ordered values from 1 to 9 to the board object
-    public SudokuBoard() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                board[i][j] = new SudokuField();
+        for (int i = 0; i < boardFieldsArray.length; i++) {
+            for (int j = 0; j < boardFieldsArray[i].length; j++) {
+                boardFieldsArray[i][j] = new SudokuField();
             }
         }
+        sudokuSolver = solver;
     }
 
     // method invoking solve procedure on the solver type passed by constructor
@@ -42,11 +96,27 @@ public class SudokuBoard implements Serializable, Cloneable {
     }
 
     public int get(int x, int y) {
-        return board[x][y].getFieldValue();
+        return boardFieldsArray[x][y].getValue();
     }
 
     public void set(int x, int y, int value) {
-        board[x][y].setFieldValue(value);
+        boardFieldsArray[x][y].setValue(value);
+    }
+
+    public SudokuField[][] getBoardFieldsArray() {
+        return boardFieldsArray;
+    }
+
+    public void setBoardFieldsArray(SudokuField[][] array) {
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                boardFieldsArray[i][j] = array[i][j];
+            }
+        }
+    }
+
+    public void setSudokuSolver(SudokuSolver solver) {
+        sudokuSolver = solver;
     }
 
     // iterates through 9 elements horizontally in the row passed in parameter,
@@ -118,6 +188,27 @@ public class SudokuBoard implements Serializable, Cloneable {
         return true;
     }
 
+    public List<SudokuField> twoDimensionArrayToList(SudokuField[][] twoDArray) {
+        List<SudokuField> list = new ArrayList<SudokuField>();
+        for (SudokuField[] array : twoDArray) {
+            list.addAll(Arrays.asList(array));
+        }
+        return list;
+    }
+
+    public SudokuField[][] listToTwoDimensionArray(List<SudokuField> list) {
+        SudokuField[][] array = new SudokuField[dimension][dimension];
+        int listElement = 0;
+
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                array[i][j] = list.get(listElement);
+                listElement++;
+            }
+        }
+        return array;
+    }
+
     // overridden method for testing purposes
     @Override
     public boolean equals(Object obj) {
@@ -135,8 +226,8 @@ public class SudokuBoard implements Serializable, Cloneable {
 
         SudokuBoard objBoard = (SudokuBoard) obj;
 
-        for (int rowId = 0; rowId < board.length; rowId++) {
-            for (int columnId = 0; columnId < board[rowId].length; columnId++) {
+        for (int rowId = 0; rowId < boardFieldsArray.length; rowId++) {
+            for (int columnId = 0; columnId < boardFieldsArray[rowId].length; columnId++) {
                 if (this.get(rowId, columnId) != objBoard.get(rowId, columnId)) {
                     return false;
                 }
@@ -148,14 +239,14 @@ public class SudokuBoard implements Serializable, Cloneable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(board);
+        return Objects.hashCode(boardFieldsArray);
     }
 
     @Override
     public String toString() {
         return "SudokuBoard.SudokuBoard{"
                 + "board="
-                + Arrays.toString(board)
+                + Arrays.toString(boardFieldsArray)
                 + '}';
     }
 
@@ -167,8 +258,8 @@ public class SudokuBoard implements Serializable, Cloneable {
         // SudokuBoard board = (SudokuBoard) super.clone();
 
         SudokuBoard newBoard = new SudokuBoard(this.sudokuSolver.clone());
-        for (int rowId = 0; rowId < board.length; rowId++) {
-            for (int columnId = 0; columnId < board[rowId].length; columnId++) {
+        for (int rowId = 0; rowId < boardFieldsArray.length; rowId++) {
+            for (int columnId = 0; columnId < boardFieldsArray[rowId].length; columnId++) {
                 newBoard.set(rowId, columnId, this.get(rowId, columnId));
             }
         }

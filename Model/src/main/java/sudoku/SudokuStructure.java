@@ -1,7 +1,6 @@
 package sudoku;
 
 import com.google.common.base.Objects;
-
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class SudokuStructure implements Serializable, Cloneable {
         Set<Integer> testSet = new HashSet<>();
 
         for (int i = 0; i < SudokuBoard.dimension; i++) {
-            if (testSet.add(values.get(i).getFieldValue()) == false) {
+            if (testSet.add(values.get(i).getValue()) == false) {
                 uniqueStructure = false;
             }
         }

@@ -1,13 +1,12 @@
 package dao;
 
+import exceptions.NoDataException;
+import exceptions.NoSuchFileException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import exceptions.NoDataException;
-import exceptions.NoSuchFileException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sudoku.SudokuBoard;
@@ -15,7 +14,8 @@ import sudoku.SudokuBoard;
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     public String fileName;
-    private static final Logger logger = LogManager.getLogger(FileSudokuBoardDao.class.getPackage().getName());
+    private static final Logger logger =
+            LogManager.getLogger(FileSudokuBoardDao.class.getPackage().getName());
 
 
     public FileSudokuBoardDao(String newFileName) {
@@ -31,7 +31,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
             return board;
         } catch (ClassNotFoundException e) {
             throw new NoDataException();
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new NoSuchFileException("There is no such file", e);
         }
     }
@@ -41,7 +41,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
         try (ObjectOutputStream outputStream =
                      new ObjectOutputStream(new FileOutputStream(fileName))) {
             outputStream.writeObject(board);
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new NoSuchFileException("There is no such file", e);
         }
         logger.debug("Saved correctly");

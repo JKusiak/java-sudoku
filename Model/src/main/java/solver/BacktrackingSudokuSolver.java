@@ -1,15 +1,17 @@
 package solver;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import sudoku.SudokuBoard;
 
 public class BacktrackingSudokuSolver implements SudokuSolver, Serializable {
-    private static final Logger logger = LogManager.getLogger(BacktrackingSudokuSolver.class.getPackage().getName());
+    private static final Logger logger =
+            LogManager.getLogger(BacktrackingSudokuSolver.class.getPackage().getName());
 
     // final function that creates empty board, initializes it with random numbers and solves
     public void solve(SudokuBoard board) {

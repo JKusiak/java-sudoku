@@ -2,7 +2,7 @@ package exceptions;
 
 public class NoDataException extends MyFileReadingException {
 
-    public NoDataException(){
+    public NoDataException() {
         super();
     }
 

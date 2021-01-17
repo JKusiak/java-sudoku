@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JdbcSudokuBoardDao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Model_Project</a> &gt; <a href="index.source.html" class="el_package">dao</a> &gt; <span class="el_source">JdbcSudokuBoardDao.java</span></div><h1>JdbcSudokuBoardDao.java</h1><pre class="source lang-java linenums">package dao;
+
+import exceptions.NameExistsException;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import sudoku.SudokuBoard;
+import sudoku.SudokuBoardRepository;
+import sudoku.SudokuField;
+
+
+public class JdbcSudokuBoardDao implements Dao&lt;SudokuBoard&gt;, AutoCloseable {
+    private String gameName;
+    private static final Logger logger =
+<span class="fc" id="L18">            LogManager.getLogger(FileSudokuBoardDao.class.getPackage().getName());</span>
+<span class="fc" id="L19"></span>
+    EntityManagerFactory entityManagerFactory =
+<span class="fc" id="L21">            Persistence.createEntityManagerFactory(&quot;Sudokus&quot;);</span>
+<span class="fc" id="L22">    EntityManager entityManager = entityManagerFactory.createEntityManager();</span>
+<span class="fc" id="L23">    SudokuBoardRepository sudokuBoardRepository = new SudokuBoardRepository(entityManager);</span>
+<span class="fc" id="L24"></span>
+    public JdbcSudokuBoardDao(String gameName) {
+<span class="fc" id="L26">        this.gameName = gameName;</span>
+<span class="fc" id="L27">    }</span>
+<span class="fc" id="L28"></span>
+    @Override
+    public SudokuBoard read() {
+        SudokuBoard sudokuBoard = sudokuBoardRepository.findByName(gameName);
+<span class="fc" id="L32">        return sudokuBoard;</span>
+<span class="fc" id="L33">    }</span>
+
+    @Override
+    public void write(SudokuBoard sudokuBoard) throws NameExistsException {
+        if (sudokuBoardRepository.findIfExists(gameName)) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            throw new NameExistsException(&quot;Such game is already in the database&quot;);</span>
+<span class="fc" id="L39">        }</span>
+
+        SudokuBoard newBoard = sudokuBoard.clone();
+<span class="fc" id="L42">        newBoard.setGameName(gameName);</span>
+<span class="fc" id="L43"></span>
+        List&lt;SudokuField&gt; fields = newBoard.twoDimensionArrayToList(newBoard.getBoardFieldsArray());
+<span class="fc" id="L45"></span>
+        for (SudokuField field : fields) {
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            newBoard.addField(field);</span>
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49"></span>
+        sudokuBoardRepository.save(newBoard);
+<span class="fc" id="L51">    }</span>
+<span class="fc" id="L52"></span>
+    @Override
+    public void close() {
+    }
+<span class="nc" id="L56"></span>
+    @Override
+    public void finalize() throws Throwable {
+        super.finalize();
+<span class="fc" id="L60">        logger.info(&quot;Called finalize() method&quot;);</span>
+<span class="fc" id="L61">    }</span>
+<span class="fc" id="L62"></span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

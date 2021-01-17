@@ -4,7 +4,9 @@ import sudoku.SudokuStructure;
 import sudoku.SudokuField;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,14 +43,6 @@ public class SudokuBoardTest {
         assertNotEquals(1, testBoard.get(1, 1));
     }
 
-    @Test
-    public void emptyConstructorSolverConstructructorDifferenceCheck() {
-        SudokuBoard defaultBoard = new SudokuBoard();
-        SudokuBoard filledBoard = new SudokuBoard(new BacktrackingSudokuSolver());
-        filledBoard.solveGame();
-
-        assertNotEquals(defaultBoard, filledBoard);
-    }
 
     @Test
     public void getRowNonEmptyOnFilledBoard() {
@@ -193,5 +187,41 @@ public class SudokuBoardTest {
         testBoard2.set(5, 5, 0);
 
         assertNotEquals(testBoard2, testBoard1);
+    }
+
+    @Test
+    public void listToArraySame() {
+        SudokuBoard testBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard.solveGame();
+
+        SudokuField[][] testArray = testBoard.getBoardFieldsArray();
+
+        List<SudokuField> testList = new ArrayList<>();
+        testList = testBoard.twoDimensionArrayToList(testArray);
+        SudokuField[][] finalArray = testBoard.listToTwoDimensionArray(testList);
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                assertEquals(testArray[i][j], finalArray[i][j]);
+            }
+        }
+    }
+
+    @Test
+    public void setBoardFieldsArray() {
+        SudokuBoard testBoard1 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard1.solveGame();
+
+        SudokuBoard testBoard2 = new SudokuBoard(new BacktrackingSudokuSolver());
+        testBoard2.solveGame();
+
+        SudokuField[][] testArray = testBoard1.getBoardFieldsArray();
+
+        testBoard2.setBoardFieldsArray(testArray);
+
+        assertEquals(testBoard1.get(0, 0), testBoard2.get(0, 0));
+        assertEquals(testBoard1.get(5, 5), testBoard2.get(5, 5));
+        assertEquals(testBoard1.get(8, 8), testBoard2.get(8, 8));
+
     }
 }

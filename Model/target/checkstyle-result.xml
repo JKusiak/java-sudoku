@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="8.30">
-<file name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\dao\JdbcSudokuBoardDao.java">
-</file>
-<file name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\NameExistsException.java">
-</file>
-<file name="D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\sudoku\SudokuBoardRepository.java">
-</file>
-</checkstyle>

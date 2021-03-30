@@ -217,3 +217,8 @@
 01:44:43 DEBUG dao [main] Saved correctly
 01:44:43 DEBUG dao [main] Saved correctly
 01:44:43 DEBUG dao [main] Loaded correctly
+13:43:29 INFO dao [Finalizer] Called finalize() method
+13:43:29 INFO dao [Finalizer] Called finalize() method
+13:43:30 DEBUG dao [main] Saved correctly
+13:43:31 DEBUG dao [main] Saved correctly
+13:43:31 DEBUG dao [main] Loaded correctly

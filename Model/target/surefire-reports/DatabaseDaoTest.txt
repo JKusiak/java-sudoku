@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: DatabaseDaoTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.06 s - in DatabaseDaoTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.481 s - in DatabaseDaoTest

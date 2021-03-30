@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="SudokuFieldTest" time="0.01" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="SudokuFieldTest" time="0.023" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="PL"/>
     <property name="sun.boot.library.path" value="C:\Users\Julek\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\193.6494.35\jbr\bin"/>
-    <property name="sun.java.command" value="C:\Users\Julek\AppData\Local\Temp\surefire4464071077151279323\surefirebooter2269876743926051844.jar C:\Users\Julek\AppData\Local\Temp\surefire4464071077151279323 2021-01-17T01-44-31_358-jvmRun1 surefire7937824704812118424tmp surefire_013525495655582936976tmp"/>
+    <property name="sun.java.command" value="C:\Users\Julek\AppData\Local\Temp\surefire4689950846891449196\surefirebooter4031221640153957911.jar C:\Users\Julek\AppData\Local\Temp\surefire4689950846891449196 2021-01-18T13-43-13_836-jvmRun1 surefire3535781694686978568tmp surefire_012688751534489141209tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Dokumenty\Studia_poli\Java_komp\Project\Model\target\test-classes;D:\Dokumenty\Studia_poli\Java_komp\Project\Model\target\classes;C:\Users\Julek\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\Julek\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Julek\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;C:\Users\Julek\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\Julek\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Julek\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\Julek\.m2\repository\com\google\guava\guava\29.0-jre\guava-29.0-jre.jar;C:\Users\Julek\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\Julek\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Julek\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Julek\.m2\repository\org\checkerframework\checker-qual\2.11.1\checker-qual-2.11.1.jar;C:\Users\Julek\.m2\repository\com\google\errorprone\error_prone_annotations\2.3.4\error_prone_annotations-2.3.4.jar;C:\Users\Julek\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\Julek\.m2\repository\com\google\code\gson\gson\2.8.6\gson-2.8.6.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\Julek\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\Julek\.m2\repository\org\apache\logging\log4j\log4j-api\2.14.0\log4j-api-2.14.0.jar;C:\Users\Julek\.m2\repository\org\apache\logging\log4j\log4j-core\2.14.0\log4j-core-2.14.0.jar;C:\Users\Julek\.m2\repository\org\hibernate\hibernate-core\5.4.27.Final\hibernate-core-5.4.27.Final.jar;C:\Users\Julek\.m2\repository\org\jboss\logging\jboss-logging\3.4.1.Final\jboss-logging-3.4.1.Final.jar;C:\Users\Julek\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\Julek\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\Julek\.m2\repository\net\bytebuddy\byte-buddy\1.10.17\byte-buddy-1.10.17.jar;C:\Users\Julek\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Julek\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\Julek\.m2\repository\org\jboss\jandex\2.1.3.Final\jandex-2.1.3.Final.jar;C:\Users\Julek\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\Julek\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\Julek\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\Julek\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\Julek\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\Julek\.m2\repository\org\hibernate\hibernate-entitymanager\5.4.27.Final\hibernate-entitymanager-5.4.27.Final.jar;C:\Users\Julek\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.1-api\1.0.2.Final\hibernate-jpa-2.1-api-1.0.2.Final.jar;C:\Users\Julek\.m2\repository\com\h2database\h2\1.4.200\h2-1.4.200.jar;C:\Users\Julek\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\3.0.0\jakarta.xml.bind-api-3.0.0.jar;C:\Users\Julek\.m2\repository\com\sun\activation\jakarta.activation\2.0.0\jakarta.activation-2.0.0.jar;C:\Users\Julek\.m2\repository\org\glassfish\jaxb\jaxb-runtime\3.0.0\jaxb-runtime-3.0.0.jar;C:\Users\Julek\.m2\repository\org\glassfish\jaxb\jaxb-core\3.0.0\jaxb-core-3.0.0.jar;C:\Users\Julek\.m2\repository\org\glassfish\jaxb\txw2\3.0.0\txw2-3.0.0.jar;C:\Users\Julek\.m2\repository\com\sun\istack\istack-commons-runtime\4.0.0\istack-commons-runtime-4.0.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Julek\AppData\Local\Temp\surefire4464071077151279323\surefirebooter2269876743926051844.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Julek\AppData\Local\Temp\surefire4689950846891449196\surefirebooter4031221640153957911.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.5+10-b520.38"/>
@@ -61,14 +61,14 @@
     <property name="java.class.version" value="55.0"/>
   </properties>
   <testcase name="sudokuFieldCloneCorrect" classname="SudokuFieldTest" time="0"/>
-  <testcase name="differentFieldsDifferentValuesEqualsFalseCheck" classname="SudokuFieldTest" time="0.001"/>
+  <testcase name="differentFieldsDifferentValuesEqualsFalseCheck" classname="SudokuFieldTest" time="0"/>
   <testcase name="sudokuFieldComparisonCorrect" classname="SudokuFieldTest" time="0.001"/>
-  <testcase name="sameFieldSameHashCodeCheck" classname="SudokuFieldTest" time="0"/>
-  <testcase name="toStringSudokuFieldCheck" classname="SudokuFieldTest" time="0.003"/>
+  <testcase name="sameFieldSameHashCodeCheck" classname="SudokuFieldTest" time="0.003"/>
+  <testcase name="toStringSudokuFieldCheck" classname="SudokuFieldTest" time="0.005"/>
   <testcase name="differentFieldsEqualsFalseCheck" classname="SudokuFieldTest" time="0.001"/>
   <testcase name="sameFieldEqualsTrueCheck" classname="SudokuFieldTest" time="0.001"/>
-  <testcase name="differentFieldsSameValueEqualsTrueCheck" classname="SudokuFieldTest" time="0"/>
-  <testcase name="SudokuFieldConstructorParameterizedValueCorrect" classname="SudokuFieldTest" time="0"/>
-  <testcase name="SudokuFieldConstructorValueCorrect" classname="SudokuFieldTest" time="0.001"/>
-  <testcase name="differentFieldsDifferentHashCodesCheck" classname="SudokuFieldTest" time="0"/>
+  <testcase name="differentFieldsSameValueEqualsTrueCheck" classname="SudokuFieldTest" time="0.001"/>
+  <testcase name="SudokuFieldConstructorParameterizedValueCorrect" classname="SudokuFieldTest" time="0.001"/>
+  <testcase name="SudokuFieldConstructorValueCorrect" classname="SudokuFieldTest" time="0"/>
+  <testcase name="differentFieldsDifferentHashCodesCheck" classname="SudokuFieldTest" time="0.001"/>
 </testsuite>

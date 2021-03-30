@@ -1,0 +1,18 @@
+#Sun Jan 17 02:05:28 CET 2021
+configuration*?=AB71A7D60A96319838DAF7FDD91CB922FB0B5322
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuBoardRepository.java=1610845503482
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuField.java=1610833298036
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\BacktrackingSudokuSolver.java=1610837151949
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\FileSudokuBoardDao.java=1610832591000
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\exceptions\\NoDataException.java=1610832458184
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuStructure.java=1610833021985
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\exceptions\\MyFileReadingException.java=1610577317455
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\sudoku\\SudokuBoard.java=1610835081048
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\exceptions\\NoSuchFileException.java=1610832834916
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\resources\\log4j2.properties=1610816718035
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\exceptions\\NameExistsException.java=1610845479263
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\solver\\SudokuSolver.java=1609678064113
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\Dao.java=1610838375479
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\exceptions\\LoadNewFragmentException.java=1610832451982
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\JdbcSudokuBoardDao.java=1610845461151
+D\:\\Dokumenty\\Studia_poli\\Java_komp\\Project\\Model\\src\\main\\java\\dao\\SudokuBoardDaoFactory.java=1610805699519

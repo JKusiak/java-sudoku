@@ -1,0 +1,15 @@
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\dao\Dao.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\solver\BacktrackingSudokuSolver.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\solver\SudokuSolver.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\dao\SudokuBoardDaoFactory.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\NoDataException.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\dao\JdbcSudokuBoardDao.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\sudoku\SudokuStructure.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\LoadNewFragmentException.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\NameExistsException.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\sudoku\SudokuBoardRepository.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\sudoku\SudokuField.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\dao\FileSudokuBoardDao.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\MyFileReadingException.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\exceptions\NoSuchFileException.java
+D:\Dokumenty\Studia_poli\Java_komp\Project\Model\src\main\java\sudoku\SudokuBoard.java

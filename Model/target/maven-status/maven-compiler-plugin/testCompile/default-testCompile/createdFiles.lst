@@ -1,0 +1,5 @@
+SudokuFieldTest.class
+DatabaseDaoTest.class
+SudokuBoardTest.class
+SudokuStructureTest.class
+FileDaoTest.class
